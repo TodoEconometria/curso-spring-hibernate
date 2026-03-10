@@ -99,6 +99,7 @@ Para **cada bloque** (A, B, C), documentar:
 | Dominio creativo | +0.5 | Blueprint propio aprobado por el profesor |
 | Funcionalidad extra | +0.5 | Implementar MAS de una opcion del Bloque C |
 | Documentacion impecable | +0.5 | README claro que explique como ejecutar desde cero |
+| **Repo de portfolio** | **+1.0** | Repo propio con README pro + Swagger UI + capturas + badge CI + Docker. [Guia](git-github/crear-repo-portfolio.md) |
 
 ---
 
@@ -148,31 +149,55 @@ Al finalizar las entregas, se publicara un **ranking** con las mejores puntuacio
 | :bulb: **Proyecto mas Creativo** | Dominio mas original e interesante |
 | :star: **MVP del Curso** | Mayor puntuacion total (bloques + bonificaciones) |
 
-El ranking es **publico** — se publica en el repositorio al finalizar el curso.
+El ranking es **publico** — se publica en el repositorio al finalizar cada promocion.
+
+---
+
+## Promociones
+
+Las entregas se organizan por **promocion** (año + trimestre). Cada grupo de alumnos
+que cursa con un profesor pertenece a una promocion. El ranking se publica por promocion.
+
+| Promocion | Periodo | Notas |
+|-----------|---------|-------|
+| `2026-T1` | Marzo 2026 | Primera promocion |
+
+Si haces el curso por tu cuenta (sin profesor), usa la carpeta `comunidad/`.
 
 ---
 
 ## Formato de Entrega
 
 ```
-entregas/trabajo_final/apellido_nombre/
-    PROMPTS.md                 <- LO MAS IMPORTANTE
-    01_README.md               <- Tu dominio + entidades + relaciones
-    02_INFRAESTRUCTURA.md      <- Explicacion Docker
-    03_RESULTADOS.md           <- Capturas Postman + explicacion
-    04_REFLEXION_IA.md         <- 3 Momentos Clave x 3 bloques
-    05_RESPUESTAS.md           <- 4 preguntas de comprension
-    docker-compose.yml
-    Dockerfile
-    src/
-    pom.xml
-    .gitignore
+entregas/trabajo_final/
+├── 2026-T1/                       <- Tu promocion
+│   └── apellido_nombre/
+│       ├── PROMPTS.md             <- LO MAS IMPORTANTE
+│       ├── REPO_PROYECTO.md       <- Enlace a tu repo de portfolio
+│       ├── 01_README.md           <- Tu dominio + entidades + relaciones
+│       ├── 02_INFRAESTRUCTURA.md  <- Explicacion Docker
+│       ├── 03_RESULTADOS.md       <- Capturas Postman + explicacion
+│       ├── 04_REFLEXION_IA.md     <- 3 Momentos Clave x 3 bloques
+│       ├── 05_RESPUESTAS.md       <- 4 preguntas de comprension
+│       ├── docker-compose.yml
+│       ├── Dockerfile
+│       ├── src/
+│       ├── pom.xml
+│       └── .gitignore
+└── comunidad/                     <- Para quienes hacen el curso por su cuenta
 ```
+
+> **Si creaste un repo de portfolio:** El codigo ya esta en tu repo propio.
+> En la carpeta de entrega solo necesitas los documentos de reflexion (PROMPTS.md, 01-05)
+> y el `REPO_PROYECTO.md` con el enlace. Ver [guia de portfolio](git-github/crear-repo-portfolio.md).
 
 ### Proceso de Entrega
 
 1. Sincroniza tu fork: `git fetch upstream && git merge upstream/main`
-2. Copia la plantilla: `cp -r trabajo_final/plantilla/ entregas/trabajo_final/apellido_nombre/`
+2. Copia la plantilla a tu promocion:
+   ```bash
+   cp -r trabajo_final/plantilla/ entregas/trabajo_final/2026-T1/apellido_nombre/
+   ```
 3. Completa `PROMPTS.md` mientras trabajas
 4. Completa los demas archivos (01 al 05) + Docker + codigo
 5. Sube a tu fork: `git add . && git commit -m "Trabajo Final" && git push`

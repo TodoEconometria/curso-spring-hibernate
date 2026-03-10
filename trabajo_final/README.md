@@ -26,6 +26,46 @@ se considerara copia.
 
 ---
 
+## Tu Proyecto como Portfolio Profesional
+
+Ademas de la entrega formal (los bloques A-D que se describen abajo), el proyecto
+que construyas puede ser **tu carta de presentacion profesional**. Para eso, te
+recomendamos crear un **repositorio propio** separado del fork del curso.
+
+### Por que dos repos?
+
+| Repo | Para que | Quien lo ve |
+|------|----------|-------------|
+| Tu fork de `curso-spring-hibernate` | Seguir manuales + entrega formal (PROMPTS.md, reflexion, respuestas) | El profesor |
+| **Tu repo propio** (ej: `cine-estrella`) | Codigo profesional + Docker + Swagger + README visual | Recruiters, tu CV, GitHub |
+
+Tu fork tiene 15 manuales, 16 blueprints, material del curso... todo eso no es tu proyecto.
+Un recruiter quiere ver **un repo limpio** con tu API, tu Docker Compose, tus capturas
+de Swagger, y un README que explique como ejecutarlo.
+
+### Como funciona
+
+1. **Creas tu repo propio** en GitHub (ej: `github.com/tu_usuario/cine-estrella`)
+2. **Programas ahi** durante los dias 13-18 (codigo, Docker, CI/CD, Swagger)
+3. **Para la entrega**, rellenas las plantillas en tu fork y enlazas tu repo con `REPO_PROYECTO.md`
+
+Guia completa paso a paso: **[Crear tu Repo de Portfolio](../docs/git-github/crear-repo-portfolio.md)**
+
+### Que ganas
+
+- Un repo **limpio** en tu GitHub que puedes poner en el CV
+- `docker compose up` funciona desde la raiz del repo (no desde una subcarpeta)
+- README con badges, capturas de Swagger, diagramas — visible al abrir el repo en GitHub
+- GitHub Actions con badge verde en TU propio repo
+- Swagger UI como "dashboard visual" de tu API (lo mas parecido a un frontend sin hacer frontend)
+
+> **Nota:** El repo de portfolio es **opcional pero muy recomendado**. Si no lo creas,
+> tu codigo puede ir directamente en la carpeta de entrega como se describe mas abajo.
+> Pero si quieres que tu proyecto sirva para entrevistas de trabajo, el repo propio
+> marca la diferencia.
+
+---
+
 ## Estructura: 4 Bloques
 
 ### Bloque A: Infraestructura Docker (30%)
@@ -155,29 +195,55 @@ Responde en `05_RESPUESTAS.md`:
 
 ## Entrega
 
+### Promociones
+
+Cada grupo de alumnos se identifica por **promocion** (año + trimestre).
+Las entregas se organizan por promocion para mantener el historial del curso.
+
+| Promocion | Periodo | Alumnos |
+|-----------|---------|---------|
+| **2026-T1** | Marzo 2026 | Primera promocion |
+
+Si estas haciendo el curso por tu cuenta (sin pertenecer a una promocion),
+usa la carpeta `comunidad/`.
+
 ### Formato
 
 ```
-entregas/trabajo_final/apellido_nombre/
-    PROMPTS.md                 <- LO MAS IMPORTANTE (tus prompts de IA)
-    01_README.md               <- (1) Tu dominio + entidades + relaciones
-    02_INFRAESTRUCTURA.md      <- (2) Explicacion Docker
-    03_RESULTADOS.md           <- (3) Capturas Postman + explicacion
-    04_REFLEXION_IA.md         <- (4) 3 Momentos Clave x 3 bloques
-    05_RESPUESTAS.md           <- (5) 4 preguntas de comprension
-    docker-compose.yml         <- Tu YAML funcional
-    Dockerfile                 <- Para la app Spring Boot
-    src/                       <- Codigo fuente del proyecto
-    pom.xml                    <- Dependencias Maven
-    .gitignore                 <- Excluir target/, .idea/, etc.
+entregas/trabajo_final/
+├── 2026-T1/                       <- Promocion (tu profesor te dira cual)
+│   └── apellido_nombre/
+│       ├── PROMPTS.md             <- LO MAS IMPORTANTE (tus prompts de IA)
+│       ├── REPO_PROYECTO.md       <- Enlace a tu repo de portfolio (si lo creaste)
+│       ├── 01_README.md           <- (1) Tu dominio + entidades + relaciones
+│       ├── 02_INFRAESTRUCTURA.md  <- (2) Explicacion Docker
+│       ├── 03_RESULTADOS.md       <- (3) Capturas Postman + explicacion
+│       ├── 04_REFLEXION_IA.md     <- (4) 3 Momentos Clave x 3 bloques
+│       ├── 05_RESPUESTAS.md       <- (5) 4 preguntas de comprension
+│       ├── docker-compose.yml     <- Tu YAML funcional
+│       ├── Dockerfile             <- Para la app Spring Boot
+│       ├── src/                   <- Codigo fuente del proyecto
+│       ├── pom.xml                <- Dependencias Maven
+│       └── .gitignore             <- Excluir target/, .idea/, etc.
+└── comunidad/                     <- Para quienes hacen el curso por su cuenta
+    └── apellido_nombre/
+        └── (misma estructura)
 ```
+
+> **Si creaste un repo propio:** El codigo (`src/`, `pom.xml`, `Dockerfile`,
+> `docker-compose.yml`) ya esta en tu repo de portfolio. En la carpeta de entrega
+> solo necesitas los documentos de reflexion (PROMPTS.md, 01-05) y el `REPO_PROYECTO.md`
+> con el enlace. No hace falta duplicar el codigo en ambos sitios.
 
 Copia la plantilla desde `trabajo_final/plantilla/` a tu carpeta de entrega.
 
 ### Proceso (SIN Pull Request)
 
 1. Sincroniza tu fork: `git fetch upstream && git merge upstream/main`
-2. Copia la plantilla: `cp -r trabajo_final/plantilla/ entregas/trabajo_final/apellido_nombre/`
+2. Crea tu carpeta de entrega dentro de tu promocion:
+   ```bash
+   cp -r trabajo_final/plantilla/ entregas/trabajo_final/2026-T1/apellido_nombre/
+   ```
 3. **Completa PROMPTS.md** mientras trabajas (documenta tus prompts de IA)
 4. Completa los demas archivos (01 al 05) + `docker-compose.yml` + `Dockerfile`
 5. Sube a tu fork: `git add . && git commit -m "Trabajo Final" && git push`
@@ -238,6 +304,7 @@ pega ESO. **El sistema detecta si limpiaste tus prompts.**
 | Dominio creativo | +0.5 | Blueprint propio aprobado por el profesor |
 | Funcionalidad extra | +0.5 | Implementar MAS de una opcion del Bloque C |
 | Documentacion impecable | +0.5 | README claro que explique como ejecutar desde cero |
+| **Repo de portfolio** | **+1.0** | Repo propio con: README profesional + Swagger UI + capturas incrustadas + badge CI verde + Docker funcional. [Guia completa](../docs/git-github/crear-repo-portfolio.md) |
 
 ### Penalizaciones
 

@@ -105,18 +105,27 @@ git push
 
 ```bash
 # 1. Copia la plantilla
-cp -r trabajo_final/plantilla/ entregas/trabajo_final/apellido_nombre/
+cp -r trabajo_final/plantilla/ entregas/trabajo_final/2026-T1/apellido_nombre/
 
 # 2. Completa los archivos (PROMPTS.md, 01_README.md, etc.)
 
 # 3. Commit y push
-git add entregas/trabajo_final/apellido_nombre/
+git add entregas/trabajo_final/2026-T1/apellido_nombre/
 git commit -m "Trabajo Final - Apellido Nombre"
 git push
 ```
 
 !!! warning "No crear Pull Request"
     El profesor revisa tu fork directamente. **NO necesitas crear PR.**
+
+---
+
+## Repo de portfolio (proyecto propio)
+
+Cuando llegues al trabajo final (dia 13+), ademas de tu fork vas a crear un
+**repo propio** para tu proyecto. Es tu pieza de portfolio profesional.
+
+Guia completa: [Crear tu Repo de Portfolio](git-github/crear-repo-portfolio.md)
 
 ---
 

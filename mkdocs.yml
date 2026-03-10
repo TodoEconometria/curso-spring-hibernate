@@ -99,7 +99,12 @@ nav:
   - Guia de Inicio: guia-inicio.md
   - Blueprints: blueprints.md
   - Evaluacion: evaluacion.md
-  - Git y GitHub: git-github.md
+  - Git y GitHub:
+    - Referencia rapida: git-github.md
+    - Fork y clone: git-github/fork-clone.md
+    - Sincronizar fork: git-github/sincronizar-fork.md
+    - Comandos utiles: git-github/comandos-utiles.md
+    - Crear repo de portfolio: git-github/crear-repo-portfolio.md
 
 copyright: >
   Copyright &copy; 2026 Juan Marcelo Gutierrez Miranda — TodoEconometria
