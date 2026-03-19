@@ -129,7 +129,7 @@ details[open] > summary {
 Spring Boot + Hibernate — De Java a Docker
 </p>
 <p style="color: #666; font-size: 0.9em;">
-Ultima actualizacion: 2026-03-19 22:16 | Evaluacion automatica
+Ultima actualizacion: 2026-03-19 22:27 | Evaluacion automatica
 </p>
 </div>
 
@@ -179,13 +179,11 @@ Ultima actualizacion: 2026-03-19 22:16 | Evaluacion automatica
 
 <details style="margin-top: 15px;">
 <summary style="cursor: pointer; color: #667eea; font-weight: 600; padding: 10px; background: linear-gradient(180deg, #1a1a2e, #16213e); border-radius: 8px; border: 1px solid #667eea30; text-align: center;">&#9660; Mostrar ranking completo (2 estudiantes mas)</summary>
-
-
-| Pos | Estudiante | Nota | Delta | Estado | Proyecto | Enlace | Demo |
-|:---:|:-----------|:----:|:----:|:------:|:---------|:----:|:----:|
-| **#11** | @RaulVelasco21 | **5.2** | — | &#10003; Aprobado | `futbol-primera` | [Ver](https://github.com/RaulVelasco21/futbol-primera){target="_blank"} | — |
-| **#12** | @blnfern | **5.1** | — | &#10003; Aprobado | `paqueteria-spring` | [Ver](https://github.com/blnfern/paqueteria-spring){target="_blank"} | — |
-
+<table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+<tr style="border-bottom: 2px solid #667eea30;"><th style="padding: 8px; text-align: center;">Pos</th><th style="padding: 8px; text-align: left;">Estudiante</th><th style="padding: 8px; text-align: center;">Nota</th><th style="padding: 8px; text-align: center;">Delta</th><th style="padding: 8px; text-align: center;">Estado</th><th style="padding: 8px; text-align: left;">Proyecto</th><th style="padding: 8px; text-align: center;">Enlace</th><th style="padding: 8px; text-align: center;">Demo</th></tr>
+<tr style="border-bottom: 1px solid #ffffff10;"><td style="padding: 8px; text-align: center; font-weight: bold;">#11</td><td style="padding: 8px;">@RaulVelasco21</td><td style="padding: 8px; text-align: center; font-weight: bold;">5.2</td><td style="padding: 8px; text-align: center;">—</td><td style="padding: 8px; text-align: center;">&#10003; Aprobado</td><td style="padding: 8px;"><code>futbol-primera</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/RaulVelasco21/futbol-primera" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;">—</td></tr>
+<tr style="border-bottom: 1px solid #ffffff10;"><td style="padding: 8px; text-align: center; font-weight: bold;">#12</td><td style="padding: 8px;">@blnfern</td><td style="padding: 8px; text-align: center; font-weight: bold;">5.1</td><td style="padding: 8px; text-align: center;">—</td><td style="padding: 8px; text-align: center;">&#10003; Aprobado</td><td style="padding: 8px;"><code>paqueteria-spring</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/blnfern/paqueteria-spring" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;">—</td></tr>
+</table>
 </details>
 
 
@@ -211,7 +209,7 @@ Ultima actualizacion: 2026-03-19 22:16 | Evaluacion automatica
 
 <p style="text-align: center; color: #555; font-size: 0.85em; margin-top: 40px;">
 El ranking se actualiza con cada evaluacion. Sube tu proyecto para aparecer!<br>
-<em>Generado por: QUASAR (Quality Unified Automated Student Assessment & Ranking) | 2026-03-19 22:16</em>
+<em>Generado por: QUASAR (Quality Unified Automated Student Assessment & Ranking) | 2026-03-19 22:27</em>
 </p>
 
 ---
