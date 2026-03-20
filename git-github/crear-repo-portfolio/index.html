@@ -1,0 +1,2835 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Curso completo de Spring Boot + Hibernate, desde Java puro hasta Docker y CI/CD">
+      
+      
+        <meta name="author" content="Juan Gutierrez - TodoEconometria">
+      
+      
+        <link rel="canonical" href="https://todoeconometria.github.io/curso-spring-hibernate/git-github/crear-repo-portfolio/">
+      
+      
+        <link rel="prev" href="../comandos-utiles/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/todoeconometria_logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Crear repo de portfolio - Spring Boot + Hibernate — De Cero a Produccion</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#crear-tu-repo-de-portfolio" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href="../.." title="Spring Boot + Hibernate — De Cero a Produccion" class="md-header__button md-logo" aria-label="Spring Boot + Hibernate — De Cero a Produccion" data-md-component="logo">
+      
+  <img src="../../assets/todoeconometria_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Spring Boot + Hibernate — De Cero a Produccion
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Crear repo de portfolio
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/TodoEconometria/curso-spring-hibernate" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TodoEconometria/curso-spring-hibernate
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../guia-inicio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Guia de Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../blueprints/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blueprints
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../evaluacion/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Evaluacion
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../ranking/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Ranking
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Git y GitHub
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Spring Boot + Hibernate — De Cero a Produccion" class="md-nav__button md-logo" aria-label="Spring Boot + Hibernate — De Cero a Produccion" data-md-component="logo">
+      
+  <img src="../../assets/todoeconometria_logo.png" alt="logo">
+
+    </a>
+    Spring Boot + Hibernate — De Cero a Produccion
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/TodoEconometria/curso-spring-hibernate" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TodoEconometria/curso-spring-hibernate
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guia-inicio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia de Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../blueprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blueprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../evaluacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluacion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ranking/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ranking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git y GitHub
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git y GitHub
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencia rapida
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../fork-clone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fork y clone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sincronizar-fork/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sincronizar fork
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../comandos-utiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comandos utiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crear repo de portfolio
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crear repo de portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#importante-esto-se-construye-poco-a-poco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importante: esto se construye poco a poco
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-concepto-dos-repos-dos-propositos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El concepto: dos repos, dos propositos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-1-crear-el-repositorio-en-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Crear el repositorio en GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-2-clonar-en-intellij" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2: Clonar en IntelliJ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-3-inicializar-el-proyecto-spring-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3: Inicializar el proyecto Spring Boot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 3: Inicializar el proyecto Spring Boot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opcion-a-spring-initializr-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opcion A: Spring Initializr (recomendado)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcion-b-desde-intellij" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opcion B: Desde IntelliJ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-4-estructura-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 4: Estructura del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-5-el-readme-profesional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 5: El README profesional
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 5: El README profesional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sin-docker-desarrollo-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sin Docker (desarrollo local)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints principales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swagger-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swagger UI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-de-entidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama de entidades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capturas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capturas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postman-crud-funcionando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Postman — CRUD funcionando
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adminer-base-de-datos-con-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adminer — Base de datos con datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura del proyecto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estructura del proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verificar-que-funciona" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificar que funciona
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-titulo-y-descripcion-opcional-pero-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurar titulo y descripcion (opcional pero recomendado)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resultado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-7-screenshots-hacer-visible-lo-invisible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 7: Screenshots — Hacer visible lo invisible
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 7: Screenshots — Hacer visible lo invisible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-hacer-capturas-en-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como hacer capturas en Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-capturar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Que capturar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-incrustar-en-el-readme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como incrustar en el README
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-8-github-actions-el-badge-verde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 8: GitHub Actions — El badge verde
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-9-docker-que-cualquiera-pueda-ejecutar-tu-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 9: Docker — Que cualquiera pueda ejecutar tu proyecto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 9: Docker — Que cualquiera pueda ejecutar tu proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agregar-dependencia-de-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agregar dependencia de PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-el-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear el Dockerfile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-el-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear el docker-compose.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-sabe-la-app-si-usar-h2-o-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Como sabe la app si usar H2 o PostgreSQL?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificar-que-funciona_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificar que funciona
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-10-coleccion-postman" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 10: Coleccion Postman
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-11-conectar-con-la-entrega-del-curso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 11: Conectar con la entrega del curso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist final
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Checklist final">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obligatorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obligatorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recomendado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pero-si-es-backend-donde-lo-veo-funcionando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Pero si es backend... ¿donde lo veo funcionando?"
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="&#34;Pero si es backend... ¿donde lo veo funcionando?&#34;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entonces-como-demuestra-un-developer-backend-que-su-proyecto-funciona" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Entonces como demuestra un developer backend que su proyecto funciona?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparativa-con-otros-perfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparativa con otros perfiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#y-si-alguien-quiere-verlo-corriendo-de-verdad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Y si alguien quiere verlo corriendo de verdad?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#se-puede-desplegar-gratis-en-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Se puede desplegar gratis en internet?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-importa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Por que importa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen visual
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Tabla de contenidos
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#importante-esto-se-construye-poco-a-poco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Importante: esto se construye poco a poco
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#el-concepto-dos-repos-dos-propositos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        El concepto: dos repos, dos propositos
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-1-crear-el-repositorio-en-github" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 1: Crear el repositorio en GitHub
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-2-clonar-en-intellij" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 2: Clonar en IntelliJ
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-3-inicializar-el-proyecto-spring-boot" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 3: Inicializar el proyecto Spring Boot
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 3: Inicializar el proyecto Spring Boot">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#opcion-a-spring-initializr-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opcion A: Spring Initializr (recomendado)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#opcion-b-desde-intellij" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Opcion B: Desde IntelliJ
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-4-estructura-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 4: Estructura del proyecto
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-5-el-readme-profesional" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 5: El README profesional
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 5: El README profesional">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sin-docker-desarrollo-local" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sin Docker (desarrollo local)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#endpoints-principales" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Endpoints principales
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#swagger-ui" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Swagger UI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#arquitectura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitectura
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#diagrama-de-entidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Diagrama de entidades
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#capturas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Capturas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Capturas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postman-crud-funcionando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Postman — CRUD funcionando
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#adminer-base-de-datos-con-datos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Adminer — Base de datos con datos
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#estructura-del-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estructura del proyecto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Estructura del proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verificar-que-funciona" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificar que funciona
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configurar-titulo-y-descripcion-opcional-pero-recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Configurar titulo y descripcion (opcional pero recomendado)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resultado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resultado
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-7-screenshots-hacer-visible-lo-invisible" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 7: Screenshots — Hacer visible lo invisible
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 7: Screenshots — Hacer visible lo invisible">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#como-hacer-capturas-en-windows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como hacer capturas en Windows
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#que-capturar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Que capturar
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-incrustar-en-el-readme" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como incrustar en el README
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-8-github-actions-el-badge-verde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 8: GitHub Actions — El badge verde
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-9-docker-que-cualquiera-pueda-ejecutar-tu-proyecto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 9: Docker — Que cualquiera pueda ejecutar tu proyecto
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Paso 9: Docker — Que cualquiera pueda ejecutar tu proyecto">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agregar-dependencia-de-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agregar dependencia de PostgreSQL
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-el-dockerfile" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear el Dockerfile
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crear-el-docker-composeyml" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Crear el docker-compose.yml
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#como-sabe-la-app-si-usar-h2-o-postgresql" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Como sabe la app si usar H2 o PostgreSQL?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#verificar-que-funciona_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verificar que funciona
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-10-coleccion-postman" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 10: Coleccion Postman
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#paso-11-conectar-con-la-entrega-del-curso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Paso 11: Conectar con la entrega del curso
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checklist-final" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checklist final
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Checklist final">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#obligatorio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Obligatorio
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#recomendado" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Recomendado
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#bonus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bonus
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#pero-si-es-backend-donde-lo-veo-funcionando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Pero si es backend... ¿donde lo veo funcionando?"
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="&#34;Pero si es backend... ¿donde lo veo funcionando?&#34;">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#entonces-como-demuestra-un-developer-backend-que-su-proyecto-funciona" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Entonces como demuestra un developer backend que su proyecto funciona?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#comparativa-con-otros-perfiles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparativa con otros perfiles
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#y-si-alguien-quiere-verlo-corriendo-de-verdad" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Y si alguien quiere verlo corriendo de verdad?
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#se-puede-desplegar-gratis-en-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ¿Se puede desplegar gratis en internet?
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#por-que-importa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Por que importa
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#resumen-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resumen visual
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="crear-tu-repo-de-portfolio">Crear tu Repo de Portfolio<a class="headerlink" href="#crear-tu-repo-de-portfolio" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p><em>"El portfolio del backend NO es una URL publica, es un repo de GitHub
+que cualquiera puede levantar con un comando."</em></p>
+<p>— Prof. Juan Marcelo Gutierrez Miranda</p>
+</blockquote>
+<p>Tu fork del curso sirve para seguir los manuales y entregar el trabajo final.
+Pero cuando termines el proyecto, vas a querer <strong>mostrarlo en tu CV</strong>.</p>
+<p>Un recruiter no va a navegar <code>entregas/trabajo_final/garcia_pedro/</code> dentro de un fork
+con 15 manuales y 16 blueprints. Necesitas un repo <strong>limpio y profesional</strong> que sea
+100% tu proyecto.</p>
+<p>Esta guia te explica como crearlo paso a paso.</p>
+<h3 id="importante-esto-se-construye-poco-a-poco">Importante: esto se construye poco a poco<a class="headerlink" href="#importante-esto-se-construye-poco-a-poco" title="Permanent link">&para;</a></h3>
+<p>NO tienes que hacer todo de golpe. El repo de portfolio se construye
+a medida que avanzas en el curso:</p>
+<table>
+<thead>
+<tr>
+<th>Dias</th>
+<th>Que agregas al repo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>13-14</td>
+<td>Crear el repo + codigo Spring Boot (entidades, controllers, servicios)</td>
+</tr>
+<tr>
+<td>15-16</td>
+<td>Dockerfile + docker-compose.yml</td>
+</tr>
+<tr>
+<td>17</td>
+<td>GitHub Actions (CI/CD) + badge en README</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Swagger UI + pulir todo</td>
+</tr>
+<tr>
+<td>19</td>
+<td>README profesional + capturas + diagrama</td>
+</tr>
+</tbody>
+</table>
+<p>Si haces el curso por tu cuenta, sigue el mismo orden. Los manuales del curso
+(en <code>manuales/</code>) explican cada tecnologia en detalle.</p>
+<hr />
+<h2 id="el-concepto-dos-repos-dos-propositos">El concepto: dos repos, dos propositos<a class="headerlink" href="#el-concepto-dos-repos-dos-propositos" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>github.com/TU_USUARIO/curso-spring-hibernate/     ← FORK (seguir el curso + entregar)
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>github.com/TU_USUARIO/cine-estrella/               ← TU PROYECTO (portfolio + CV)
+</code></pre></div>
+<table>
+<thead>
+<tr>
+<th>Repo</th>
+<th>Para que</th>
+<th>Quien lo ve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Fork del curso</td>
+<td>Manuales, ejercicios, entrega formal (PROMPTS.md, reflexion)</td>
+<td>El profesor</td>
+</tr>
+<tr>
+<td>Tu repo propio</td>
+<td>Codigo profesional, Docker, Swagger, README bonito</td>
+<td>Recruiters, GitHub, tu CV</td>
+</tr>
+</tbody>
+</table>
+<p>No se excluyen. Los dos conviven. Trabajas en tu repo propio y cuando toca entregar,
+rellenas las plantillas en tu fork y enlazas tu repo.</p>
+<hr />
+<h2 id="paso-1-crear-el-repositorio-en-github">Paso 1: Crear el repositorio en GitHub<a class="headerlink" href="#paso-1-crear-el-repositorio-en-github" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Ir a <a href="https://github.com/new">github.com/new</a></li>
+<li><strong>Repository name:</strong> el nombre de tu proyecto en minusculas con guiones</li>
+<li>Ejemplo: <code>cine-estrella</code>, <code>vacunas-salud</code>, <code>agencia-viajes</code></li>
+<li>NO uses: <code>trabajo-final</code>, <code>proyecto-spring</code>, <code>mi-proyecto</code> (no dicen nada)</li>
+<li><strong>Description:</strong> una linea que diga que hace</li>
+<li>Ejemplo: "API REST para gestion de un cine — Spring Boot 4 + PostgreSQL + Docker"</li>
+<li><strong>Public</strong> (marcado)</li>
+<li><strong>Add a README file</strong> (marcado)</li>
+<li><strong>Add .gitignore:</strong> seleccionar <strong>Maven</strong></li>
+<li>Click en <strong>Create repository</strong></li>
+</ol>
+<hr />
+<h2 id="paso-2-clonar-en-intellij">Paso 2: Clonar en IntelliJ<a class="headerlink" href="#paso-2-clonar-en-intellij" title="Permanent link">&para;</a></h2>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>DONDE_TENGAS_TUS_PROYECTOS
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/TU_USUARIO/cine-estrella.git
+</code></pre></div>
+<p>En IntelliJ: <strong>File → Open</strong> → seleccionar la carpeta <code>cine-estrella</code>.</p>
+<p>Ahora tienes dos proyectos en IntelliJ:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>IntelliJ:
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>├── curso-spring-hibernate/     ← fork (manuales, consulta, entrega)
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>└── cine-estrella/              ← tu proyecto (aqui programas)
+</code></pre></div>
+<hr />
+<h2 id="paso-3-inicializar-el-proyecto-spring-boot">Paso 3: Inicializar el proyecto Spring Boot<a class="headerlink" href="#paso-3-inicializar-el-proyecto-spring-boot" title="Permanent link">&para;</a></h2>
+<p>Hay dos formas:</p>
+<h3 id="opcion-a-spring-initializr-recomendado">Opcion A: Spring Initializr (recomendado)<a class="headerlink" href="#opcion-a-spring-initializr-recomendado" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Ir a <a href="https://start.spring.io">start.spring.io</a></li>
+<li>Configurar:</li>
+<li><strong>Project:</strong> Maven</li>
+<li><strong>Language:</strong> Java</li>
+<li><strong>Spring Boot:</strong> 4.0.x (la mas reciente estable)</li>
+<li><strong>Group:</strong> <code>com.tuusuario</code></li>
+<li><strong>Artifact:</strong> <code>cine-estrella</code></li>
+<li><strong>Java:</strong> 21</li>
+<li><strong>Dependencies</strong> (buscarlas en el buscador de la derecha):</li>
+<li><strong>Spring Web</strong> — para crear endpoints REST (<code>@RestController</code>, <code>@GetMapping</code>, etc.)</li>
+<li><strong>Spring Data JPA</strong> — para conectar con la base de datos usando <code>@Entity</code> y <code>JpaRepository</code></li>
+<li><strong>H2 Database</strong> — base de datos en memoria para desarrollo (despues agregaras PostgreSQL para Docker)</li>
+<li><strong>Lombok</strong> — para no escribir getters/setters/constructores a mano (<code>@Data</code>, <code>@NoArgsConstructor</code>)</li>
+<li><strong>Validation</strong> — para validar datos de entrada (<code>@NotBlank</code>, <code>@Size</code>, <code>@Min</code>)</li>
+<li>Click en <strong>Generate</strong> → descargar el ZIP</li>
+<li>Descomprimir el contenido DENTRO de tu carpeta <code>cine-estrella/</code></li>
+</ol>
+<h3 id="opcion-b-desde-intellij">Opcion B: Desde IntelliJ<a class="headerlink" href="#opcion-b-desde-intellij" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>File → New → Project</strong> → Spring Initializr</li>
+<li>Misma configuracion que arriba</li>
+<li>Ubicacion: la carpeta <code>cine-estrella/</code></li>
+</ol>
+<hr />
+<h2 id="paso-4-estructura-del-proyecto">Paso 4: Estructura del proyecto<a class="headerlink" href="#paso-4-estructura-del-proyecto" title="Permanent link">&para;</a></h2>
+<p>Tu repo debe quedar asi:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>cine-estrella/
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>├── README.md                        ← tu &quot;landing page&quot; profesional
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>├── docs/
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>│   └── screenshots/
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>│       ├── swagger-ui.png           ← captura de Swagger UI
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>│       ├── postman-crud.png         ← captura de Postman
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>│       └── adminer-tablas.png       ← captura de Adminer con datos
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>├── postman/
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>│   └── CineEstrella.postman_collection.json
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>├── src/
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>│   └── main/
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>│       ├── java/com/tuusuario/cineestrella/
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>│       │   ├── model/               ← @Entity
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>│       │   ├── repository/          ← JpaRepository
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>│       │   ├── service/             ← @Service
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>│       │   ├── controller/          ← @RestController
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>│       │   └── config/              ← OpenApiConfig (Swagger)
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>│       └── resources/
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>│           ├── application.properties
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>│           └── data.sql             ← datos iniciales
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>├── Dockerfile
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>├── docker-compose.yml
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>├── .github/
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>│   └── workflows/
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>│       └── build.yml                ← GitHub Actions CI
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a>├── pom.xml
+<a id="__codelineno-3-27" name="__codelineno-3-27" href="#__codelineno-3-27"></a>└── .gitignore
+</code></pre></div>
+<p>Carpetas clave que quiza no existan aun:</p>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>docs/screenshots
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>postman
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>.github/workflows
+</code></pre></div>
+<hr />
+<h2 id="paso-5-el-readme-profesional">Paso 5: El README profesional<a class="headerlink" href="#paso-5-el-readme-profesional" title="Permanent link">&para;</a></h2>
+<p>Este es el archivo <strong>mas importante</strong> de tu repo. Es lo primero que ve cualquiera
+que abra tu proyecto en GitHub.</p>
+<p>Copia esta plantilla y rellena con los datos de tu proyecto.</p>
+<p><strong>¿Que son los badges?</strong> Son las etiquetas de colores que aparecen arriba del README
+en muchos repos de GitHub (ej: "build passing" en verde). Se generan con URLs especiales
+que apuntan a servicios como shields.io o a GitHub Actions. No necesitas entender la URL,
+solo cambiar <code>TU_USUARIO</code> y <code>cine-estrella</code> por tus datos.</p>
+<p><strong>¿Que es Mermaid?</strong> Es un lenguaje de texto para dibujar diagramas. GitHub lo renderiza
+automaticamente: escribes texto y GitHub muestra un diagrama visual. No necesitas instalar
+nada ni generar imagenes — solo poner el codigo dentro de un bloque <code>```mermaid</code>.</p>
+<div class="language-markdown highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="gh"># Cine Estrella</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>![<span class="nt">Build</span>](<span class="na">https://github.com/TU_USUARIO/cine-estrella/actions/workflows/build.yml/badge.svg</span>)
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>![<span class="nt">Java</span>](<span class="na">https://img.shields.io/badge/Java-21-ED8B00?logo=openjdk&amp;logoColor=white</span>)
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>![<span class="nt">Spring Boot</span>](<span class="na">https://img.shields.io/badge/Spring%20Boot-4.0-6DB33F?logo=springboot&amp;logoColor=white</span>)
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>![<span class="nt">Docker</span>](<span class="na">https://img.shields.io/badge/Docker-Ready-2496ED?logo=docker&amp;logoColor=white</span>)
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="k">&gt; </span><span class="ge">API REST para la gestion de un cine: peliculas, salas, sesiones y entradas.</span>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="k">&gt; </span><span class="ge">Construido con Spring Boot 4, Hibernate, PostgreSQL y Docker.</span>
+<a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a>
+<a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a>---
+<a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a>
+<a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="gu">## Tecnologias</span>
+<a id="__codelineno-5-14" name="__codelineno-5-14" href="#__codelineno-5-14"></a>
+<a id="__codelineno-5-15" name="__codelineno-5-15" href="#__codelineno-5-15"></a><span class="k">-</span><span class="w"> </span>Java 21, Maven
+<a id="__codelineno-5-16" name="__codelineno-5-16" href="#__codelineno-5-16"></a><span class="k">-</span><span class="w"> </span>Spring Boot 4 + Spring Data JPA + Hibernate 7
+<a id="__codelineno-5-17" name="__codelineno-5-17" href="#__codelineno-5-17"></a><span class="k">-</span><span class="w"> </span>PostgreSQL 16 (produccion) / H2 (desarrollo)
+<a id="__codelineno-5-18" name="__codelineno-5-18" href="#__codelineno-5-18"></a><span class="k">-</span><span class="w"> </span>Docker + Docker Compose
+<a id="__codelineno-5-19" name="__codelineno-5-19" href="#__codelineno-5-19"></a><span class="k">-</span><span class="w"> </span>GitHub Actions (CI/CD)
+<a id="__codelineno-5-20" name="__codelineno-5-20" href="#__codelineno-5-20"></a><span class="k">-</span><span class="w"> </span>Swagger UI (documentacion interactiva de la API)
+<a id="__codelineno-5-21" name="__codelineno-5-21" href="#__codelineno-5-21"></a>
+<a id="__codelineno-5-22" name="__codelineno-5-22" href="#__codelineno-5-22"></a>---
+<a id="__codelineno-5-23" name="__codelineno-5-23" href="#__codelineno-5-23"></a>
+<a id="__codelineno-5-24" name="__codelineno-5-24" href="#__codelineno-5-24"></a><span class="gu">## Como ejecutar</span>
+<a id="__codelineno-5-25" name="__codelineno-5-25" href="#__codelineno-5-25"></a>
+<a id="__codelineno-5-26" name="__codelineno-5-26" href="#__codelineno-5-26"></a><span class="gu">### Con Docker (recomendado)</span>
+<a id="__codelineno-5-27" name="__codelineno-5-27" href="#__codelineno-5-27"></a>
+<a id="__codelineno-5-28" name="__codelineno-5-28" href="#__codelineno-5-28"></a>```bash
+<a id="__codelineno-5-29" name="__codelineno-5-29" href="#__codelineno-5-29"></a>docker compose up
+</code></pre></div>
+<ul>
+<li>API: http://localhost:8080</li>
+<li>Swagger UI: http://localhost:8080/swagger-ui.html</li>
+<li>Adminer: http://localhost:8081</li>
+</ul>
+<h3 id="sin-docker-desarrollo-local">Sin Docker (desarrollo local)<a class="headerlink" href="#sin-docker-desarrollo-local" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>mvn<span class="w"> </span>spring-boot:run
+</code></pre></div>
+<p>Usa H2 en memoria. Swagger UI en http://localhost:8080/swagger-ui.html</p>
+<hr />
+<h2 id="endpoints-principales">Endpoints principales<a class="headerlink" href="#endpoints-principales" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Metodo</th>
+<th>Endpoint</th>
+<th>Descripcion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>GET</td>
+<td><code>/api/peliculas</code></td>
+<td>Listar todas las peliculas</td>
+</tr>
+<tr>
+<td>POST</td>
+<td><code>/api/peliculas</code></td>
+<td>Crear nueva pelicula</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/peliculas/{id}</code></td>
+<td>Obtener pelicula por ID</td>
+</tr>
+<tr>
+<td>PUT</td>
+<td><code>/api/peliculas/{id}</code></td>
+<td>Actualizar pelicula</td>
+</tr>
+<tr>
+<td>DELETE</td>
+<td><code>/api/peliculas/{id}</code></td>
+<td>Eliminar pelicula</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/salas</code></td>
+<td>Listar salas</td>
+</tr>
+<tr>
+<td>GET</td>
+<td><code>/api/sesiones/pelicula/{id}</code></td>
+<td>Sesiones de una pelicula</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="swagger-ui">Swagger UI<a class="headerlink" href="#swagger-ui" title="Permanent link">&para;</a></h2>
+<p>Documentacion interactiva generada automaticamente. Permite probar
+todos los endpoints desde el navegador sin necesidad de Postman.</p>
+<p><img alt="Swagger UI" src="docs/screenshots/swagger-ui.png" /></p>
+<hr />
+<h2 id="arquitectura">Arquitectura<a class="headerlink" href="#arquitectura" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>graph TD
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>    CLIENT[&quot;Cliente HTTP&quot;]
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>    CTRL[&quot;Controller&lt;br/&gt;(@RestController)&quot;]
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>    SVC[&quot;Service&lt;br/&gt;(@Service)&quot;]
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>    REPO[&quot;Repository&lt;br/&gt;(JpaRepository)&quot;]
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>    DB[(&quot;PostgreSQL&quot;)]
+<a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a>
+<a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a>    CLIENT --&gt;|&quot;HTTP Request&quot;| CTRL
+<a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a>    CTRL --&gt; SVC
+<a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a>    SVC --&gt; REPO
+<a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a>    REPO --&gt;|&quot;JPA/Hibernate&quot;| DB
+<a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a>
+<a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a>    style CLIENT fill:#e0f7fa,stroke:#00897b,color:#004d40
+<a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a>    style CTRL fill:#e8f5e9,stroke:#43a047,color:#1b5e20
+<a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a>    style SVC fill:#e3f2fd,stroke:#1e88e5,color:#0d47a1
+<a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a>    style REPO fill:#f3e5f5,stroke:#8e24aa,color:#4a148c
+<a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a>    style DB fill:#fce4ec,stroke:#e53935,color:#b71c1c
+</code></pre></div>
+<h2 id="diagrama-de-entidades">Diagrama de entidades<a class="headerlink" href="#diagrama-de-entidades" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>erDiagram
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>    PELICULA ||--o{ SESION : tiene
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>    SALA ||--o{ SESION : aloja
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>    SESION ||--o{ ENTRADA : vende
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>    CLIENTE ||--o{ ENTRADA : compra
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>    PELICULA {
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>        Long id PK
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>        String titulo
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>        String genero
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>        int duracionMin
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>    }
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>    SALA {
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>        Long id PK
+<a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>        String nombre
+<a id="__codelineno-8-16" name="__codelineno-8-16" href="#__codelineno-8-16"></a>        int capacidad
+<a id="__codelineno-8-17" name="__codelineno-8-17" href="#__codelineno-8-17"></a>    }
+</code></pre></div>
+<hr />
+<h2 id="capturas">Capturas<a class="headerlink" href="#capturas" title="Permanent link">&para;</a></h2>
+<h3 id="postman-crud-funcionando">Postman — CRUD funcionando<a class="headerlink" href="#postman-crud-funcionando" title="Permanent link">&para;</a></h3>
+<p><img alt="Postman" src="docs/screenshots/postman-crud.png" /></p>
+<h3 id="adminer-base-de-datos-con-datos">Adminer — Base de datos con datos<a class="headerlink" href="#adminer-base-de-datos-con-datos" title="Permanent link">&para;</a></h3>
+<p><img alt="Adminer" src="docs/screenshots/adminer-tablas.png" /></p>
+<hr />
+<h2 id="estructura-del-proyecto">Estructura del proyecto<a class="headerlink" href="#estructura-del-proyecto" title="Permanent link">&para;</a></h2>
+<p><div class="language-text highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>src/main/java/com/tuusuario/cineestrella/
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>├── model/           ← Entidades JPA (@Entity)
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>├── repository/      ← Interfaces JpaRepository
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>├── service/         ← Logica de negocio (@Service)
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>├── controller/      ← Endpoints REST (@RestController)
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>└── config/          ← Configuracion (Swagger)
+</code></pre></div>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>---
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>## Paso 6: Swagger UI — Tu &quot;dashboard&quot; visual
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>**¿Que es Swagger UI?** Es una pagina web que se genera **automaticamente** dentro
+<a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>de tu aplicacion Spring Boot. No escribes HTML ni JavaScript. Agregas una dependencia
+<a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>Maven y la libreria lee tus anotaciones de Spring (`@GetMapping`, `@PostMapping`, etc.)
+<a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>para generar una interfaz donde puedes VER y PROBAR todos tus endpoints desde el navegador.
+<a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>
+<a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>Es como Postman, pero integrado en tu app y accesible desde cualquier navegador.
+<a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>Para un proyecto de backend, es lo mas parecido a un &quot;frontend&quot; sin hacer frontend.
+<a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>
+<a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>### Agregar la dependencia
+<a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>
+<a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>En `pom.xml`, dentro de `&lt;dependencies&gt;`:
+<a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>
+<a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>```xml
+<a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>&lt;dependency&gt;
+<a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>    &lt;groupId&gt;org.springdoc&lt;/groupId&gt;
+<a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>    &lt;artifactId&gt;springdoc-openapi-starter-webmvc-ui&lt;/artifactId&gt;
+<a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>    &lt;version&gt;2.8.6&lt;/version&gt;
+<a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>&lt;/dependency&gt;
+</code></pre></div></p>
+<p>Despues de agregar la dependencia, refrescar Maven en IntelliJ (icono de recarga)
+o ejecutar <code>mvn clean compile</code>.</p>
+<h3 id="verificar-que-funciona">Verificar que funciona<a class="headerlink" href="#verificar-que-funciona" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Ejecutar la app (<code>Run</code> en IntelliJ o <code>mvn spring-boot:run</code>)</li>
+<li>Abrir en el navegador: <code>http://localhost:8080/swagger-ui.html</code></li>
+<li>Deben aparecer todos los controllers con sus endpoints</li>
+<li>Click en cualquier endpoint → <strong>Try it out</strong> → <strong>Execute</strong> → ven la respuesta</li>
+</ol>
+<p>Si aparece un 404, verificar que la dependencia se descargo bien (refrescar Maven).</p>
+<h3 id="configurar-titulo-y-descripcion-opcional-pero-recomendado">Configurar titulo y descripcion (opcional pero recomendado)<a class="headerlink" href="#configurar-titulo-y-descripcion-opcional-pero-recomendado" title="Permanent link">&para;</a></h3>
+<p>Esto hace que Swagger UI muestre el nombre de TU proyecto en vez de un titulo generico.</p>
+<p>Crear el archivo <code>src/main/java/com/tuusuario/cineestrella/config/OpenApiConfig.java</code>:</p>
+<div class="language-java highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="kn">package</span><span class="w"> </span><span class="nn">com.tuusuario.cineestrella.config</span><span class="p">;</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.swagger.v3.oas.models.OpenAPI</span><span class="p">;</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.swagger.v3.oas.models.info.Contact</span><span class="p">;</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">io.swagger.v3.oas.models.info.Info</span><span class="p">;</span>
+<a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.context.annotation.Bean</span><span class="p">;</span>
+<a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">org.springframework.context.annotation.Configuration</span><span class="p">;</span>
+<a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>
+<a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="nd">@Configuration</span><span class="w">  </span><span class="c1">// Le dice a Spring que esta clase contiene configuracion</span>
+<a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="kd">public</span><span class="w"> </span><span class="kd">class</span> <span class="nc">OpenApiConfig</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>
+<a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a><span class="w">    </span><span class="nd">@Bean</span><span class="w">  </span><span class="c1">// Le dice a Spring que este metodo crea un objeto que Spring debe gestionar</span>
+<a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a><span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="n">OpenAPI</span><span class="w"> </span><span class="nf">customOpenAPI</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a><span class="w">        </span><span class="k">return</span><span class="w"> </span><span class="k">new</span><span class="w"> </span><span class="n">OpenAPI</span><span class="p">()</span>
+<a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a><span class="w">            </span><span class="p">.</span><span class="na">info</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Info</span><span class="p">()</span>
+<a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a><span class="w">                </span><span class="p">.</span><span class="na">title</span><span class="p">(</span><span class="s">&quot;Cine Estrella API&quot;</span><span class="p">)</span><span class="w">                          </span><span class="c1">// Cambiar por tu proyecto</span>
+<a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a><span class="w">                </span><span class="p">.</span><span class="na">description</span><span class="p">(</span><span class="s">&quot;API REST para gestion de peliculas, salas y entradas&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="w">                </span><span class="p">.</span><span class="na">version</span><span class="p">(</span><span class="s">&quot;1.0.0&quot;</span><span class="p">)</span>
+<a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="w">                </span><span class="p">.</span><span class="na">contact</span><span class="p">(</span><span class="k">new</span><span class="w"> </span><span class="n">Contact</span><span class="p">()</span>
+<a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="w">                    </span><span class="p">.</span><span class="na">name</span><span class="p">(</span><span class="s">&quot;Tu Nombre&quot;</span><span class="p">)</span><span class="w">                               </span><span class="c1">// Tu nombre real</span>
+<a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="w">                    </span><span class="p">.</span><span class="na">url</span><span class="p">(</span><span class="s">&quot;https://github.com/TU_USUARIO/cine-estrella&quot;</span><span class="p">)));</span><span class="w">  </span><span class="c1">// Tu repo</span>
+<a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="w">    </span><span class="p">}</span>
+<a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="p">}</span>
+</code></pre></div>
+<h3 id="resultado">Resultado<a class="headerlink" href="#resultado" title="Permanent link">&para;</a></h3>
+<p>Con la app corriendo, abrir: <code>http://localhost:8080/swagger-ui.html</code></p>
+<p>Todos los endpoints aparecen organizados por controller, con colores por metodo HTTP
+(GET=verde, POST=azul, PUT=naranja, DELETE=rojo). Cada uno tiene un boton
+"Try it out" para probar la peticion directamente desde el navegador.</p>
+<p><strong>Hacer captura de pantalla</strong> y guardarla en <code>docs/screenshots/swagger-ui.png</code>.</p>
+<hr />
+<h2 id="paso-7-screenshots-hacer-visible-lo-invisible">Paso 7: Screenshots — Hacer visible lo invisible<a class="headerlink" href="#paso-7-screenshots-hacer-visible-lo-invisible" title="Permanent link">&para;</a></h2>
+<p>Estas capturas van en <code>docs/screenshots/</code> y se incrustan en el README.
+Son lo que un recruiter VE sin clonar ni ejecutar nada.</p>
+<h3 id="como-hacer-capturas-en-windows">Como hacer capturas en Windows<a class="headerlink" href="#como-hacer-capturas-en-windows" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Win + Shift + S</strong> → seleccionar el area → se copia al portapapeles</li>
+<li>Abrir Paint o cualquier editor → Pegar (Ctrl+V) → Guardar como PNG</li>
+<li>Guardar directamente en <code>docs/screenshots/</code> dentro de tu proyecto</li>
+</ul>
+<h3 id="que-capturar">Que capturar<a class="headerlink" href="#que-capturar" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Captura</th>
+<th>Que mostrar</th>
+<th>Nombre del archivo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Swagger UI</strong></td>
+<td>La pagina con todos los endpoints listados</td>
+<td><code>swagger-ui.png</code></td>
+</tr>
+<tr>
+<td><strong>Postman</strong></td>
+<td>Un GET que devuelve datos + un POST creando algo</td>
+<td><code>postman-crud.png</code></td>
+</tr>
+<tr>
+<td><strong>Adminer</strong></td>
+<td>La vista de tablas con datos cargados</td>
+<td><code>adminer-tablas.png</code></td>
+</tr>
+<tr>
+<td><strong>GitHub Actions</strong></td>
+<td>El pipeline verde (check verde en la pestaña Actions)</td>
+<td><code>github-actions.png</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="como-incrustar-en-el-readme">Como incrustar en el README<a class="headerlink" href="#como-incrustar-en-el-readme" title="Permanent link">&para;</a></h3>
+<div class="language-markdown highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>![<span class="nt">Swagger UI</span>](<span class="na">docs/screenshots/swagger-ui.png</span>)
+</code></pre></div>
+<p>GitHub renderiza las imagenes directamente. El recruiter abre tu repo y las VE
+sin hacer nada.</p>
+<hr />
+<h2 id="paso-8-github-actions-el-badge-verde">Paso 8: GitHub Actions — El badge verde<a class="headerlink" href="#paso-8-github-actions-el-badge-verde" title="Permanent link">&para;</a></h2>
+<p><strong>¿Que es GitHub Actions?</strong> Es un servicio gratuito de GitHub que ejecuta comandos
+automaticamente cada vez que haces push. Lo mas comun: compilar tu proyecto y correr
+los tests. Si todo pasa, aparece un check verde en tu repo. Si algo falla, aparece
+una X roja. El badge en el README muestra ese estado en tiempo real.</p>
+<p>En la practica: haces push → GitHub descarga tu codigo en un servidor Linux →
+ejecuta <code>mvn package</code> → si compila y los tests pasan → badge verde.</p>
+<p>Crear <code>.github/workflows/build.yml</code>:</p>
+<div class="language-yaml highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build</span>
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="nt">on</span><span class="p">:</span>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a><span class="w">  </span><span class="nt">push</span><span class="p">:</span>
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a><span class="w">  </span><span class="nt">pull_request</span><span class="p">:</span>
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="w"> </span><span class="nv">main</span><span class="w"> </span><span class="p p-Indicator">]</span>
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="nt">jobs</span><span class="p">:</span>
+<a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">  </span><span class="nt">build</span><span class="p">:</span>
+<a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">ubuntu-latest</span>
+<a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a>
+<a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">    </span><span class="nt">steps</span><span class="p">:</span>
+<a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/checkout@v4</span>
+<a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>
+<a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Set up JDK 21</span>
+<a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="w">      </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">actions/setup-java@v4</span>
+<a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">      </span><span class="nt">with</span><span class="p">:</span>
+<a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="w">        </span><span class="nt">java-version</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;21&#39;</span>
+<a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="w">        </span><span class="nt">distribution</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;temurin&#39;</span>
+<a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>
+<a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Build with Maven</span>
+<a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="w">      </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mvn -B package --file pom.xml</span>
+</code></pre></div>
+<p>Despues de hacer push, ir a la pestaña <strong>Actions</strong> en GitHub para ver que pasa.
+Cuando este verde, el badge del README se actualiza automaticamente.</p>
+<hr />
+<h2 id="paso-9-docker-que-cualquiera-pueda-ejecutar-tu-proyecto">Paso 9: Docker — Que cualquiera pueda ejecutar tu proyecto<a class="headerlink" href="#paso-9-docker-que-cualquiera-pueda-ejecutar-tu-proyecto" title="Permanent link">&para;</a></h2>
+<p><strong>¿Que es Docker?</strong> Es una herramienta que empaqueta tu aplicacion con TODO lo que
+necesita (Java, dependencias, configuracion) en un "contenedor". Cualquiera que tenga
+Docker instalado puede ejecutar tu app con un solo comando, sin instalar Java, Maven,
+ni bases de datos.</p>
+<p><strong>¿Que es Docker Compose?</strong> Es una extension de Docker que permite levantar VARIOS
+contenedores a la vez. En tu caso: tu app Spring Boot + una base de datos PostgreSQL +
+Adminer (una interfaz web para ver la base de datos). Todo con un solo comando.</p>
+<h3 id="agregar-dependencia-de-postgresql">Agregar dependencia de PostgreSQL<a class="headerlink" href="#agregar-dependencia-de-postgresql" title="Permanent link">&para;</a></h3>
+<p>Cuando tu app corre en Docker, usa PostgreSQL en vez de H2. Agrega en <code>pom.xml</code>:</p>
+<div class="language-xml highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a><span class="nt">&lt;dependency&gt;</span>
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="w">    </span><span class="nt">&lt;groupId&gt;</span>org.postgresql<span class="nt">&lt;/groupId&gt;</span>
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="w">    </span><span class="nt">&lt;artifactId&gt;</span>postgresql<span class="nt">&lt;/artifactId&gt;</span>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a><span class="w">    </span><span class="nt">&lt;scope&gt;</span>runtime<span class="nt">&lt;/scope&gt;</span>
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a><span class="nt">&lt;/dependency&gt;</span>
+</code></pre></div>
+<h3 id="crear-el-dockerfile">Crear el Dockerfile<a class="headerlink" href="#crear-el-dockerfile" title="Permanent link">&para;</a></h3>
+<p>El <code>Dockerfile</code> le dice a Docker como construir el contenedor de tu app.
+Crear el archivo <code>Dockerfile</code> en la raiz del proyecto (junto al <code>pom.xml</code>):</p>
+<div class="language-dockerfile highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a><span class="c"># Etapa 1: compilar el proyecto con Maven</span>
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="k">FROM</span><span class="w"> </span><span class="s">eclipse-temurin:21-jdk</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">build</span>
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a><span class="k">COPY</span><span class="w"> </span>pom.xml<span class="w"> </span>.
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a><span class="k">COPY</span><span class="w"> </span>src<span class="w"> </span>./src
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a><span class="k">RUN</span><span class="w"> </span>apt-get<span class="w"> </span>update<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>maven
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a><span class="k">RUN</span><span class="w"> </span>mvn<span class="w"> </span>clean<span class="w"> </span>package<span class="w"> </span>-DskipTests
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="c"># Etapa 2: ejecutar solo el JAR compilado</span>
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a><span class="k">FROM</span><span class="w"> </span><span class="s">eclipse-temurin:21-jre</span>
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a><span class="k">COPY</span><span class="w"> </span>--from<span class="o">=</span>build<span class="w"> </span>/app/target/*.jar<span class="w"> </span>app.jar
+<a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a><span class="k">EXPOSE</span><span class="w"> </span><span class="s">8080</span>
+<a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a><span class="k">ENTRYPOINT</span><span class="w"> </span><span class="p">[</span><span class="s2">&quot;java&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;-jar&quot;</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;app.jar&quot;</span><span class="p">]</span>
+</code></pre></div>
+<p><strong>¿Que hace esto?</strong> Primero compila tu proyecto con Maven (etapa 1).
+Despues copia solo el JAR resultante a un contenedor ligero (etapa 2).
+Asi el contenedor final es pequeno y rapido.</p>
+<h3 id="crear-el-docker-composeyml">Crear el docker-compose.yml<a class="headerlink" href="#crear-el-docker-composeyml" title="Permanent link">&para;</a></h3>
+<p>Crear <code>docker-compose.yml</code> en la raiz del proyecto:</p>
+<div class="language-yaml highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a><span class="nt">services</span><span class="p">:</span>
+<a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="w">  </span><span class="nt">db</span><span class="p">:</span>
+<a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres:16-alpine</span>
+<a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">      </span><span class="nt">POSTGRES_DB</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mi_proyecto</span>
+<a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">      </span><span class="nt">POSTGRES_USER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a><span class="w">      </span><span class="nt">POSTGRES_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;5432:5432&quot;</span>
+<a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a><span class="w">    </span><span class="nt">healthcheck</span><span class="p">:</span>
+<a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a><span class="w">      </span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="s">&quot;CMD-SHELL&quot;</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">&quot;pg_isready</span><span class="nv"> </span><span class="s">-U</span><span class="nv"> </span><span class="s">postgres&quot;</span><span class="p p-Indicator">]</span>
+<a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="w">      </span><span class="nt">interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5s</span>
+<a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="w">      </span><span class="nt">timeout</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3s</span>
+<a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="w">      </span><span class="nt">retries</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span>
+<a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a>
+<a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="w">  </span><span class="nt">adminer</span><span class="p">:</span>
+<a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="w">    </span><span class="nt">image</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">adminer:latest</span>
+<a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8081:8080&quot;</span>
+<a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<a id="__codelineno-16-21" name="__codelineno-16-21" href="#__codelineno-16-21"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">db</span>
+<a id="__codelineno-16-22" name="__codelineno-16-22" href="#__codelineno-16-22"></a>
+<a id="__codelineno-16-23" name="__codelineno-16-23" href="#__codelineno-16-23"></a><span class="w">  </span><span class="nt">app</span><span class="p">:</span>
+<a id="__codelineno-16-24" name="__codelineno-16-24" href="#__codelineno-16-24"></a><span class="w">    </span><span class="nt">build</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">.</span>
+<a id="__codelineno-16-25" name="__codelineno-16-25" href="#__codelineno-16-25"></a><span class="w">    </span><span class="nt">ports</span><span class="p">:</span>
+<a id="__codelineno-16-26" name="__codelineno-16-26" href="#__codelineno-16-26"></a><span class="w">      </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="s">&quot;8080:8080&quot;</span>
+<a id="__codelineno-16-27" name="__codelineno-16-27" href="#__codelineno-16-27"></a><span class="w">    </span><span class="nt">environment</span><span class="p">:</span>
+<a id="__codelineno-16-28" name="__codelineno-16-28" href="#__codelineno-16-28"></a><span class="w">      </span><span class="nt">SPRING_DATASOURCE_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">jdbc:postgresql://db:5432/mi_proyecto</span>
+<a id="__codelineno-16-29" name="__codelineno-16-29" href="#__codelineno-16-29"></a><span class="w">      </span><span class="nt">SPRING_DATASOURCE_USERNAME</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<a id="__codelineno-16-30" name="__codelineno-16-30" href="#__codelineno-16-30"></a><span class="w">      </span><span class="nt">SPRING_DATASOURCE_PASSWORD</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">postgres</span>
+<a id="__codelineno-16-31" name="__codelineno-16-31" href="#__codelineno-16-31"></a><span class="w">      </span><span class="nt">SPRING_JPA_HIBERNATE_DDL_AUTO</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">update</span>
+<a id="__codelineno-16-32" name="__codelineno-16-32" href="#__codelineno-16-32"></a><span class="w">    </span><span class="nt">depends_on</span><span class="p">:</span>
+<a id="__codelineno-16-33" name="__codelineno-16-33" href="#__codelineno-16-33"></a><span class="w">      </span><span class="nt">db</span><span class="p">:</span>
+<a id="__codelineno-16-34" name="__codelineno-16-34" href="#__codelineno-16-34"></a><span class="w">        </span><span class="nt">condition</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">service_healthy</span>
+</code></pre></div>
+<h3 id="como-sabe-la-app-si-usar-h2-o-postgresql">¿Como sabe la app si usar H2 o PostgreSQL?<a class="headerlink" href="#como-sabe-la-app-si-usar-h2-o-postgresql" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Cuando ejecutas localmente</strong> (<code>mvn spring-boot:run</code>): usa H2 en memoria
+  (configurado en <code>application.properties</code>)</li>
+<li><strong>Cuando ejecutas con Docker</strong> (<code>docker compose up</code>): las variables de entorno
+  del <code>docker-compose.yml</code> sobreescriben la configuracion y apuntan a PostgreSQL</li>
+</ul>
+<p>No necesitas dos archivos de configuracion. Docker Compose se encarga.</p>
+<h3 id="verificar-que-funciona_1">Verificar que funciona<a class="headerlink" href="#verificar-que-funciona_1" title="Permanent link">&para;</a></h3>
+<div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>docker<span class="w"> </span>compose<span class="w"> </span>up<span class="w"> </span>--build
+</code></pre></div>
+<ul>
+<li>API: http://localhost:8080/api/...</li>
+<li>Swagger UI: http://localhost:8080/swagger-ui.html</li>
+<li>Adminer: http://localhost:8081 (servidor: <code>db</code>, usuario: <code>postgres</code>, password: <code>postgres</code>)</li>
+</ul>
+<p>Si todo arranca, hacer captura de Adminer y guardarla en <code>docs/screenshots/adminer-tablas.png</code>.</p>
+<hr />
+<h2 id="paso-10-coleccion-postman">Paso 10: Coleccion Postman<a class="headerlink" href="#paso-10-coleccion-postman" title="Permanent link">&para;</a></h2>
+<p><strong>¿Que es una coleccion Postman?</strong> Es un archivo JSON que contiene todas las peticiones
+HTTP que has probado en Postman (GET, POST, PUT, DELETE). Al exportarla y subirla al repo,
+cualquiera puede importarla en su Postman y probar tu API sin tener que escribir las
+peticiones desde cero.</p>
+<p>Exportar tu coleccion:</p>
+<ol>
+<li>En Postman: click derecho en tu coleccion → <strong>Export</strong></li>
+<li>Formato: <strong>Collection v2.1</strong></li>
+<li>Guardar como <code>postman/CineEstrella.postman_collection.json</code></li>
+<li>Commit y push</li>
+</ol>
+<hr />
+<h2 id="paso-11-conectar-con-la-entrega-del-curso">Paso 11: Conectar con la entrega del curso<a class="headerlink" href="#paso-11-conectar-con-la-entrega-del-curso" title="Permanent link">&para;</a></h2>
+<p>Tu proyecto ya esta en su propio repo. Ahora hay que conectarlo con la entrega
+formal en tu fork del curso.</p>
+<ol>
+<li>
+<p>En tu fork de <code>curso-spring-hibernate</code>, copia la plantilla a tu promocion:
+   <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>cp<span class="w"> </span>-r<span class="w"> </span>trabajo_final/plantilla/<span class="w"> </span>entregas/trabajo_final/2026-T1/apellido_nombre/
+</code></pre></div>
+   (Si haces el curso por tu cuenta, usa <code>comunidad/</code> en vez de <code>2026-T1/</code>)</p>
+</li>
+<li>
+<p>Rellena las plantillas como siempre (PROMPTS.md, reflexion, respuestas)</p>
+</li>
+<li>
+<p>En el archivo <code>REPO_PROYECTO.md</code>, pon el enlace a tu repo:
+   <div class="language-markdown highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="gs">**Repo:**</span> https://github.com/TU_USUARIO/cine-estrella
+</code></pre></div></p>
+</li>
+<li>
+<p>Commit y push a tu fork</p>
+</li>
+</ol>
+<p>El profesor revisa tu fork para la evaluacion formal (bloques A-D) y
+tu repo propio para verificar que el proyecto funciona.</p>
+<hr />
+<h2 id="checklist-final">Checklist final<a class="headerlink" href="#checklist-final" title="Permanent link">&para;</a></h2>
+<p>Antes de considerar tu repo de portfolio terminado:</p>
+<h3 id="obligatorio">Obligatorio<a class="headerlink" href="#obligatorio" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> README con descripcion, tecnologias, como ejecutar y endpoints</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Swagger UI funcionando en <code>/swagger-ui.html</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>docker compose up</code> levanta app + base de datos sin errores</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> GitHub Actions: pipeline verde, badge visible en README</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>.gitignore</code> correcto (sin <code>target/</code>, <code>.idea/</code>, <code>.env</code>)</li>
+</ul>
+<h3 id="recomendado">Recomendado<a class="headerlink" href="#recomendado" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Capturas de Swagger UI y Postman incrustadas en README</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Diagrama de arquitectura en Mermaid (GitHub lo renderiza)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Diagrama de entidades (ER) en Mermaid</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> OpenApiConfig con titulo y descripcion del proyecto</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Coleccion Postman exportada en <code>postman/</code></li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> 10+ commits con mensajes descriptivos</li>
+</ul>
+<h3 id="bonus">Bonus<a class="headerlink" href="#bonus" title="Permanent link">&para;</a></h3>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Captura de Adminer mostrando las tablas con datos</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Captura de GitHub Actions (pipeline verde)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Tests JUnit que pasen</li>
+</ul>
+<hr />
+<h2 id="pero-si-es-backend-donde-lo-veo-funcionando">"Pero si es backend... ¿donde lo veo funcionando?"<a class="headerlink" href="#pero-si-es-backend-donde-lo-veo-funcionando" title="Permanent link">&para;</a></h2>
+<p>Esta es la pregunta mas comun. Y la respuesta honesta es:
+<strong>no lo ves corriendo en internet.</strong> Y eso esta bien.</p>
+<p>Un proyecto de frontend se despliega en Vercel y tienes una URL publica.
+Un dashboard de datos se sube a Streamlit o Tableau Public. Pero un backend
+no tiene interfaz grafica por naturaleza — es una API que responde JSON.</p>
+<h3 id="entonces-como-demuestra-un-developer-backend-que-su-proyecto-funciona">¿Entonces como demuestra un developer backend que su proyecto funciona?<a class="headerlink" href="#entonces-como-demuestra-un-developer-backend-que-su-proyecto-funciona" title="Permanent link">&para;</a></h3>
+<p>Con <strong>evidencia verificable</strong> en el repo:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>╔═══════════════════════════════════════════════════════════════════╗
+<a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>║  ¿COMO SE &quot;VE&quot; UN PROYECTO BACKEND SIN SERVIDOR PUBLICO?         ║
+<a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a>╠═══════════════════════════════════════════════════════════════════╣
+<a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>║                                                                   ║
+<a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a>║  1. docker compose up                                             ║
+<a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>║     → Cualquiera que clone el repo puede levantar TODO            ║
+<a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a>║       en su maquina con UN comando. No necesita instalar          ║
+<a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a>║       Java, Maven, ni PostgreSQL. Solo Docker.                    ║
+<a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a>║                                                                   ║
+<a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a>║  2. Swagger UI (capturas en el README)                            ║
+<a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a>║     → El recruiter VE la interfaz de la API sin ejecutar nada.    ║
+<a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a>║       Es visual: endpoints con colores, botones, ejemplos.        ║
+<a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>║       Es la prueba de que la API existe y esta documentada.       ║
+<a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a>║                                                                   ║
+<a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a>║  3. Badge verde de GitHub Actions                                 ║
+<a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a>║     → Prueba automatica de que el codigo compila y los tests      ║
+<a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a>║       pasan. Cada vez que haces push, GitHub lo verifica.         ║
+<a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>║       Verde = funciona. Nadie lo puede falsificar.                ║
+<a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a>║                                                                   ║
+<a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>║  4. Capturas de Postman / Adminer                                 ║
+<a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a>║     → Screenshots reales de peticiones HTTP con respuestas JSON,  ║
+<a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>║       y de la base de datos con tablas y datos cargados.          ║
+<a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a>║       Evidencia concreta de que los endpoints funcionan.          ║
+<a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a>║                                                                   ║
+<a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a>║  5. Coleccion Postman exportada                                   ║
+<a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a>║     → Un archivo .json que el recruiter importa en Postman y      ║
+<a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a>║       prueba TODOS los endpoints en 30 segundos.                  ║
+<a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a>║                                                                   ║
+<a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a>╚═══════════════════════════════════════════════════════════════════╝
+</code></pre></div>
+<h3 id="comparativa-con-otros-perfiles">Comparativa con otros perfiles<a class="headerlink" href="#comparativa-con-otros-perfiles" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>Perfil</th>
+<th>Como muestra su trabajo</th>
+<th>Equivalente en backend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Frontend</td>
+<td>URL publica (Vercel, Netlify)</td>
+<td><code>docker compose up</code> + Swagger UI</td>
+</tr>
+<tr>
+<td>Data / BI</td>
+<td>Dashboard interactivo (Tableau, PowerBI)</td>
+<td>Capturas de Swagger + Adminer</td>
+</tr>
+<tr>
+<td>DevOps</td>
+<td>Pipeline visible en CI/CD</td>
+<td>Badge verde de GitHub Actions</td>
+</tr>
+<tr>
+<td>Backend</td>
+<td><strong>Todo lo anterior junto</strong></td>
+<td>README + Docker + Swagger + Badge + Postman</td>
+</tr>
+</tbody>
+</table>
+<h3 id="y-si-alguien-quiere-verlo-corriendo-de-verdad">¿Y si alguien quiere verlo corriendo de verdad?<a class="headerlink" href="#y-si-alguien-quiere-verlo-corriendo-de-verdad" title="Permanent link">&para;</a></h3>
+<p>Tiene dos opciones:</p>
+<ol>
+<li>
+<p><strong>Clonar + Docker</strong> (30 segundos):
+   <div class="language-bash highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/TU_USUARIO/cine-estrella.git
+<a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a><span class="nb">cd</span><span class="w"> </span>cine-estrella
+<a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a>docker<span class="w"> </span>compose<span class="w"> </span>up
+<a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="c1"># Abrir http://localhost:8080/swagger-ui.html</span>
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Importar coleccion Postman</strong> (10 segundos):
+   Descargar el <code>.json</code> de la carpeta <code>postman/</code> → importar en Postman → ejecutar.</p>
+</li>
+</ol>
+<p>En la industria, un recruiter tecnico de backend SABE que las APIs no tienen
+interfaz grafica. Lo que busca es: ¿este candidato sabe empaquetar y documentar
+su trabajo para que OTRO lo pueda ejecutar sin pedirle ayuda? Si la respuesta
+es si, el candidato demuestra que sabe trabajar en equipo y en produccion.</p>
+<h3 id="se-puede-desplegar-gratis-en-internet">¿Se puede desplegar gratis en internet?<a class="headerlink" href="#se-puede-desplegar-gratis-en-internet" title="Permanent link">&para;</a></h3>
+<p>Si, pero queda fuera del alcance de este curso. Si quieres hacerlo por tu cuenta:</p>
+<table>
+<thead>
+<tr>
+<th>Servicio</th>
+<th>Que ofrece gratis</th>
+<th>Limitacion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="https://railway.app">Railway</a></td>
+<td>App + PostgreSQL</td>
+<td>500 horas/mes, se apaga si no se usa</td>
+</tr>
+<tr>
+<td><a href="https://render.com">Render</a></td>
+<td>App + PostgreSQL</td>
+<td>Se duerme a los 15 min sin uso</td>
+</tr>
+<tr>
+<td><a href="https://fly.io">Fly.io</a></td>
+<td>Contenedor Docker</td>
+<td>3 maquinas pequeñas gratis</td>
+</tr>
+</tbody>
+</table>
+<p>Estos servicios son utiles para tener una URL publica temporal, pero no son
+necesarios para el portfolio. El repo de GitHub con Docker + Swagger + badge
+es suficiente para demostrar competencia profesional.</p>
+<hr />
+<h2 id="por-que-importa">Por que importa<a class="headerlink" href="#por-que-importa" title="Permanent link">&para;</a></h2>
+<p>Un recruiter de backend abre tu repo en GitHub. No va a clonar (al menos no de entrada).
+Lo que hace en 60 segundos:</p>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>1. Lee el README
+<a id="__codelineno-22-2" name="__codelineno-22-2" href="#__codelineno-22-2"></a>   → ¿Tiene descripcion clara? ¿Badges? ¿Diagramas?
+<a id="__codelineno-22-3" name="__codelineno-22-3" href="#__codelineno-22-3"></a>   → Si dice &quot;Spring Boot project generated by Spring Initializr&quot; → cierra la pestaña
+<a id="__codelineno-22-4" name="__codelineno-22-4" href="#__codelineno-22-4"></a>
+<a id="__codelineno-22-5" name="__codelineno-22-5" href="#__codelineno-22-5"></a>2. Mira las capturas
+<a id="__codelineno-22-6" name="__codelineno-22-6" href="#__codelineno-22-6"></a>   → ¿Swagger UI? ¿Datos reales? ¿Postman?
+<a id="__codelineno-22-7" name="__codelineno-22-7" href="#__codelineno-22-7"></a>   → Si no hay capturas, no hay evidencia de que funcione
+<a id="__codelineno-22-8" name="__codelineno-22-8" href="#__codelineno-22-8"></a>
+<a id="__codelineno-22-9" name="__codelineno-22-9" href="#__codelineno-22-9"></a>3. Mira el badge de CI
+<a id="__codelineno-22-10" name="__codelineno-22-10" href="#__codelineno-22-10"></a>   → ¿Verde? = este candidato sabe configurar un pipeline
+<a id="__codelineno-22-11" name="__codelineno-22-11" href="#__codelineno-22-11"></a>   → ¿Rojo o no hay? = no sabe o no le importa
+<a id="__codelineno-22-12" name="__codelineno-22-12" href="#__codelineno-22-12"></a>
+<a id="__codelineno-22-13" name="__codelineno-22-13" href="#__codelineno-22-13"></a>4. Si le interesa, clona y ejecuta
+<a id="__codelineno-22-14" name="__codelineno-22-14" href="#__codelineno-22-14"></a>   → docker compose up → ¿arranca? → abre Swagger UI → prueba un endpoint
+<a id="__codelineno-22-15" name="__codelineno-22-15" href="#__codelineno-22-15"></a>   → Si funciona a la primera: &quot;este candidato sabe lo que hace&quot;
+<a id="__codelineno-22-16" name="__codelineno-22-16" href="#__codelineno-22-16"></a>
+<a id="__codelineno-22-17" name="__codelineno-22-17" href="#__codelineno-22-17"></a>5. Decide en &lt; 3 minutos
+<a id="__codelineno-22-18" name="__codelineno-22-18" href="#__codelineno-22-18"></a>   → &quot;Este candidato sabe montar un backend completo y desplegable&quot;
+</code></pre></div>
+<p>Tu repo de portfolio es tu carta de presentacion profesional. No es un ejercicio
+de clase. Es lo que queda en tu GitHub para siempre.</p>
+<hr />
+<h2 id="resumen-visual">Resumen visual<a class="headerlink" href="#resumen-visual" title="Permanent link">&para;</a></h2>
+<div class="language-text highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>╔═══════════════════════════════════════════════════════════════╗
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>║                    TUS DOS REPOS                              ║
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>╠═══════════════════════════════════════════════════════════════╣
+<a id="__codelineno-23-4" name="__codelineno-23-4" href="#__codelineno-23-4"></a>║                                                               ║
+<a id="__codelineno-23-5" name="__codelineno-23-5" href="#__codelineno-23-5"></a>║  FORK del curso                    TU REPO PROPIO             ║
+<a id="__codelineno-23-6" name="__codelineno-23-6" href="#__codelineno-23-6"></a>║  ──────────────                    ──────────────             ║
+<a id="__codelineno-23-7" name="__codelineno-23-7" href="#__codelineno-23-7"></a>║  curso-spring-hibernate/           cine-estrella/             ║
+<a id="__codelineno-23-8" name="__codelineno-23-8" href="#__codelineno-23-8"></a>║                                                               ║
+<a id="__codelineno-23-9" name="__codelineno-23-9" href="#__codelineno-23-9"></a>║  ├── manuales/ (consulta)          ├── README.md (pro)        ║
+<a id="__codelineno-23-10" name="__codelineno-23-10" href="#__codelineno-23-10"></a>║  ├── blueprints/ (referencia)      ├── docs/screenshots/      ║
+<a id="__codelineno-23-11" name="__codelineno-23-11" href="#__codelineno-23-11"></a>║  └── entregas/                     ├── postman/               ║
+<a id="__codelineno-23-12" name="__codelineno-23-12" href="#__codelineno-23-12"></a>║      └── trabajo_final/            ├── src/ (tu codigo)       ║
+<a id="__codelineno-23-13" name="__codelineno-23-13" href="#__codelineno-23-13"></a>║          └── 2026-T1/tu_nombre/    ├── Dockerfile             ║
+<a id="__codelineno-23-14" name="__codelineno-23-14" href="#__codelineno-23-14"></a>║              ├── PROMPTS.md        ├── docker-compose.yml     ║
+<a id="__codelineno-23-15" name="__codelineno-23-15" href="#__codelineno-23-15"></a>║              ├── 01-05 docs        ├── .github/workflows/     ║
+<a id="__codelineno-23-16" name="__codelineno-23-16" href="#__codelineno-23-16"></a>║              └── REPO_PROYECTO.md  └── pom.xml                ║
+<a id="__codelineno-23-17" name="__codelineno-23-17" href="#__codelineno-23-17"></a>║                    │                       ▲                  ║
+<a id="__codelineno-23-18" name="__codelineno-23-18" href="#__codelineno-23-18"></a>║                    └── enlaza a ───────────┘                  ║
+<a id="__codelineno-23-19" name="__codelineno-23-19" href="#__codelineno-23-19"></a>║                                                               ║
+<a id="__codelineno-23-20" name="__codelineno-23-20" href="#__codelineno-23-20"></a>║  Para: evaluacion                  Para: portfolio + CV       ║
+<a id="__codelineno-23-21" name="__codelineno-23-21" href="#__codelineno-23-21"></a>║  Ve: el profesor                   Ve: recruiters + GitHub    ║
+<a id="__codelineno-23-22" name="__codelineno-23-22" href="#__codelineno-23-22"></a>║                                                               ║
+<a id="__codelineno-23-23" name="__codelineno-23-23" href="#__codelineno-23-23"></a>╚═══════════════════════════════════════════════════════════════╝
+</code></pre></div>
+<hr />
+<hr />
+<p>Referencia: @TodoEconometria
+Profesor: Juan Marcelo Gutierrez Miranda
+Hash ID: 7a3f1b9c4d8e2f5a6b0c9d8e7f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a</p>
+<hr />
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../comandos-utiles/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Comandos utiles">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Comandos utiles
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Juan Marcelo Gutierrez Miranda — TodoEconometria
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/TodoEconometria" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/in/juangutierrezconsultor/" target="_blank" rel="noopener" title="LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UC2ok03ltDHcVo1PZ1C8mGeg" target="_blank" rel="noopener" title="YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.todoeconometria.com" target="_blank" rel="noopener" title="Web TodoEconometria" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.code.select", "toc.follow"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
