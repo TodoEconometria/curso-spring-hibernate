@@ -12,7 +12,7 @@
 
 ## :coffee: El Curso en Numeros
 
-| :clock1: 75 Horas | :calendar: 15 Dias | :bulb: 16 Blueprints | :books: 15 Manuales | :wrench: 6+ Tecnologias |
+| :clock1: 100 Horas | :calendar: 20 Dias | :bulb: 16 Blueprints | :books: 20 Guias | :wrench: 8+ Tecnologias |
 |:--:|:--:|:--:|:--:|:--:|
 | de contenido | de clase | proyectos individuales | paso a paso | profesionales |
 
@@ -46,6 +46,7 @@
 | **Spring Web MVC** | Controladores REST |
 | **Jackson** | Serializacion JSON automatica |
 | **Lombok** | Reducir boilerplate |
+| **SpringDoc OpenAPI** | Documentacion Swagger automatica |
 
 ### Infraestructura
 
@@ -54,6 +55,7 @@
 | **Docker** | Contenedores |
 | **Docker Compose** | Orquestacion multi-contenedor |
 | **GitHub Actions** | CI/CD |
+| **Railway** | Deploy en produccion |
 
 ---
 
@@ -79,7 +81,7 @@
 
     ---
 
-    15 manuales paso a paso, desde Maven hasta Docker.
+    20 guias del curso, desde Maven hasta Docker.
 
     [:octicons-arrow-right-24: Ver manuales](https://github.com/TodoEconometria/curso-spring-hibernate/tree/main/manuales)
 
@@ -115,7 +117,7 @@
 
 ```
 curso-spring-hibernate/
-├── manuales/              # 15 manuales paso a paso
+├── manuales/              # 20 guias del curso
 ├── pizzeria/              # Codigo esqueleto de la Pizzeria (v3.1)
 ├── blueprints/            # 16 proyectos individuales
 ├── entregas/              # Zona de entregas del alumno

@@ -1,0 +1,61 @@
+name: Bienvenida a nuevos forks
+
+on:
+  fork:
+
+jobs:
+  registrar-fork:
+    runs-on: ubuntu-latest
+    permissions:
+      issues: write
+    steps:
+      - name: Crear issue de seguimiento
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const forkOwner = context.payload.forkee.owner.login;
+            const forkRepo = context.payload.forkee.full_name;
+            const fecha = new Date().toISOString().split('T')[0];
+
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Nuevo fork: ${forkOwner} (${fecha})`,
+              labels: ['comunidad', 'fork'],
+              body: `## Nuevo estudiante de la comunidad
+
+**Usuario:** @${forkOwner}
+**Fork:** [${forkRepo}](https://github.com/${forkRepo})
+**Fecha:** ${fecha}
+
+### Instrucciones enviadas automaticamente
+
+Este issue se cierra solo. Si ${forkOwner} necesita ayuda, puede abrir un issue nuevo.
+
+---
+
+**Para ${forkOwner}:** Bienvenido al curso. Sigue estos pasos:
+
+1. Clona tu fork y configura el upstream:
+   \`\`\`bash
+   git clone https://github.com/${forkRepo}.git
+   cd curso-spring-hibernate
+   git remote add upstream https://github.com/TodoEconometria/curso-spring-hibernate.git
+   \`\`\`
+
+2. Empieza por \`manuales/DIA_01_FUNDAMENTOS_JAVA.md\`
+
+3. Cuando termines el proyecto final, entrega en:
+   \`\`\`
+   entregas/trabajo_final/comunidad/${forkOwner}/
+   \`\`\`
+
+4. Copia la plantilla:
+   \`\`\`bash
+   cp -r trabajo_final/plantilla/ entregas/trabajo_final/comunidad/${forkOwner}/
+   \`\`\`
+
+5. Documenta tus prompts en \`PROMPTS.md\` (obligatorio)
+
+Mas info: https://todoeconometria.github.io/curso-spring-hibernate/`
+            });
