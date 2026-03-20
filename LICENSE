@@ -1,21 +1,91 @@
-MIT License
+Attribution-NonCommercial-ShareAlike 4.0 International
 
-Copyright (c) 2026 Juan Marcelo Gutierrez Miranda
+=======================================================================
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+Creative Commons Corporation ("Creative Commons") is not a law firm and
+does not provide legal services or legal advice. Distribution of
+Creative Commons public licenses does not create a lawyer-client or
+other relationship. Creative Commons makes its licenses and related
+information available on an "as-is" basis. Creative Commons gives no
+warranties regarding its licenses, any material licensed under their
+terms and conditions, or any related information. Creative Commons
+disclaims all liability for damages resulting from their use to the
+fullest extent possible.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+=======================================================================
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International
+Public License
+
+Copyright (c) 2025-2026 Prof. Juan Marcelo Gutierrez Miranda
+@TodoEconometria | todoeconometria.com
+
+By exercising the Licensed Rights (defined below), You accept and agree
+to be bound by the terms and conditions of this Creative Commons
+Attribution-NonCommercial-ShareAlike 4.0 International Public License
+("Public License"). To the extent this Public License may be interpreted
+as a contract, You are granted the Licensed Rights in consideration of
+Your acceptance of these terms and conditions, and the Licensor grants
+You such rights in consideration of benefits the Licensor receives from
+making the Licensed Material available under these terms and conditions.
+
+Section 1 -- Definitions.
+
+  a. Adapted Material means material subject to Copyright and Similar
+     Rights that is derived from or based upon the Licensed Material
+     and in which the Licensed Material is translated, altered,
+     arranged, transformed, or otherwise modified in a manner requiring
+     permission under the Copyright and Similar Rights held by the
+     Licensor.
+
+  b. NonCommercial means not primarily intended for or directed towards
+     commercial advantage or monetary compensation.
+
+  c. Share means to provide material to the public by any means or
+     process that requires permission under the Licensed Rights, such
+     as reproduction, public display, public performance, distribution,
+     dissemination, communication, or importation, and to make material
+     available to the public.
+
+Section 2 -- Scope.
+
+  a. License grant.
+     Subject to the terms and conditions of this Public License, the
+     Licensor hereby grants You a worldwide, royalty-free,
+     non-sublicensable, non-exclusive, irrevocable license to:
+       1. reproduce and Share the Licensed Material, in whole or in part,
+          for NonCommercial purposes only; and
+       2. produce, reproduce, and Share Adapted Material for
+          NonCommercial purposes only.
+
+  b. If You Share the Licensed Material (including in modified form),
+     You must:
+       1. retain identification of the creator(s):
+          "Curso Spring Boot + Hibernate - Prof. Juan Marcelo Gutierrez
+           Miranda - @TodoEconometria
+           https://github.com/TodoEconometria/curso-spring-hibernate"
+       2. indicate if You modified the Licensed Material;
+       3. include a copy of, or the URI for, this Public License.
+
+  c. ShareAlike.
+     If You Share Adapted Material You produce, You must apply the same
+     CC BY-NC-SA 4.0 license to the Adapted Material.
+
+Section 3 -- Exceptions.
+
+  a. Students enrolled in the IFCD0014 course have explicit permission
+     to use, modify and publish the code as part of their personal
+     portfolio, provided they include the required attribution.
+
+  b. Non-profit academic use (public universities, public institutes)
+     is permitted with attribution.
+
+Section 4 -- Disclaimer.
+
+  THE LICENSED MATERIAL IS PROVIDED "AS-IS". THE LICENSOR MAKES NO
+  WARRANTIES REGARDING THE LICENSED MATERIAL.
+
+Full legal text:
+https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode
+
+SPDX-License-Identifier: CC-BY-NC-SA-4.0

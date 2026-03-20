@@ -1,8 +1,8 @@
-# Spring Boot + Hibernate — De Cero a Produccion‌‌‌​‌​‌‌​﻿‍‍‌‍‌​​﻿‌‌‌‍​﻿‌‍​﻿‌‍​‍‌‍​‍‌‍‌‌​﻿‍‌​﻿‌﻿​﻿​‍​﻿‍​‌‍​‍‌‍‌‍​﻿‍‌​﻿‌‍‌‍​‍
+# Spring Boot + Hibernate - De Cero a Produccion
 
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/TodoEconometria/ejercicios-bigdata/main/docs/assets/todoeconometria_logo.png" alt="TodoEconometria" width="350">
+<img src="https://raw.githubusercontent.com/TodoEconometria/curso-spring-hibernate/main/docs/assets/todoeconometria_logo.png" alt="TodoEconometria" width="300">
 
 *"Sin experiencia no hay conocimiento"*
 
@@ -24,9 +24,9 @@
 
 ## El Curso en Numeros
 
-| 75 Horas | 15 Dias | 16 Blueprints | 15 Manuales | 6+ Tecnologias |
+| 100 Horas | 20 Sesiones | 16 Blueprints | 15 Manuales | 8+ Tecnologias |
 |:--------:|:-------:|:-------------:|:-----------:|:--------------:|
-| de contenido | de clase | proyectos individuales | paso a paso | profesionales |
+| de formacion | de clase | proyectos individuales | paso a paso | profesionales |
 
 ---
 
@@ -57,6 +57,7 @@
 | **Spring Boot 4** | Framework principal, autoconfig |
 | **Spring Web MVC** | Controladores REST |
 | **Jackson** | Serializacion JSON automatica |
+| **SpringDoc OpenAPI** | Documentacion Swagger automatica |
 | **Lombok** | Reducir boilerplate (getters, setters) |
 
 ### Infraestructura
@@ -65,7 +66,8 @@
 |------------|----------|
 | **Docker** | Contenedores |
 | **Docker Compose** | Orquestacion multi-contenedor |
-| **GitHub Actions** | CI/CD |
+| **GitHub Actions** | CI/CD automatizado |
+| **Railway** | Deploy en produccion |
 
 ### Herramientas
 
@@ -86,6 +88,16 @@
 | 7 | Maven + Pizzeria | Pizzeria v4 (Maven + dependencias) |
 | 8 | Maven avanzado | mi-biblioteca (scopes, lifecycle, JUnit 5) |
 | 9 | Hibernate intro | curso-hibernate (ORM, EntityManager, CRUD) |
+| 10 | Pizzeria + Hibernate | Pizzeria v5 (Hibernate + H2 + relaciones JPA) |
+| 11 | Spring Boot intro | demo-spring (IoC, Lombok, REST, Swagger) |
+| 12 | Pizzeria Spring Boot | Pizzeria v6 (API REST completa + validacion) |
+| 13-14 | Proyecto personal | Blueprint individual (16 opciones) |
+| 15 | Docker intro | Dockerfile, build, run |
+| 16 | Docker Compose | PostgreSQL + Adminer + app |
+| 17 | CI/CD | GitHub Actions + deploy automatico |
+| 18 | Proyecto + Docker + CI/CD | Integracion completa + Railway |
+| 19 | Preparar presentacion | Documentacion y ensayo |
+| 20 | Demo Day | Presentacion publica de proyectos |
 
 > Los dias 10-20 se publicaran a medida que avance el curso.
 
@@ -192,6 +204,8 @@ Ver enunciado completo en [`trabajo_final/README.md`](trabajo_final/README.md).
 - Email: cursos@todoeconometria.com
 - LinkedIn: [Juan Gutierrez](https://www.linkedin.com/in/juangutierrezconsultor/)
 - Web: [todoeconometria.com](https://www.todoeconometria.com)
+- YouTube: [TodoEconometria](https://www.youtube.com/channel/UC2ok03ltDHcVo1PZ1C8mGeg)
+- GitHub: [TodoEconometria](https://github.com/TodoEconometria)
 
 ---
 
