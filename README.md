@@ -6,8 +6,6 @@
 
 *"Sin experiencia no hay conocimiento"*
 
-## CURSO COMPLETO DE SPRING BOOT + HIBERNATE
-
 [![Web del Curso](https://img.shields.io/badge/Web-del%20Curso-green?style=for-the-badge&logo=github-pages&logoColor=white)](https://todoeconometria.github.io/curso-spring-hibernate/)
 [![GitHub Stars](https://img.shields.io/github/stars/TodoEconometria/curso-spring-hibernate?style=for-the-badge&logo=github)](https://github.com/TodoEconometria/curso-spring-hibernate/stargazers)
 [![GitHub Forks](https://img.shields.io/github/forks/TodoEconometria/curso-spring-hibernate?style=for-the-badge&logo=github)](https://github.com/TodoEconometria/curso-spring-hibernate/network/members)
@@ -16,203 +14,164 @@
 [![Spring Boot 4](https://img.shields.io/badge/Spring%20Boot-4.0-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)
 [![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)](https://www.docker.com/)
 
-### [**Ver Sitio Web del Curso**](https://todoeconometria.github.io/curso-spring-hibernate/)
-
 </div>
 
 ---
 
-## El Curso en Numeros
+## Que es este curso
 
-| 100 Horas | 20 Sesiones | 16 Blueprints | 15 Manuales | 8+ Tecnologias |
-|:--------:|:-------:|:-------------:|:-----------:|:--------------:|
-| de formacion | de clase | proyectos individuales | paso a paso | profesionales |
+Este es un curso profesional de 100 horas que te lleva desde los fundamentos de Java hasta desplegar una aplicacion real en produccion con Spring Boot, Hibernate, Docker y CI/CD.
 
----
+No es un tutorial suelto. Es un camino completo: empiezas escribiendo tu primer `HelloWorld.java`, y al final del curso tienes una API REST funcionando en la nube con base de datos PostgreSQL, contenedores Docker y deploy automatico con GitHub Actions.
 
-## Stack Tecnologico
-
-### Lenguaje y Build
-
-| Tecnologia | Version | Para que |
-|------------|---------|----------|
-| **Java** | 21 (LTS) | Lenguaje principal |
-| **Maven** | 3.9+ | Build, dependencias, lifecycle |
-| **JUnit 5** | 5.10+ | Testing unitario |
-
-### Persistencia
-
-| Tecnologia | Para que |
-|------------|----------|
-| **Hibernate 7** | ORM — mapeo objeto-relacional |
-| **JPA (Jakarta)** | API estandar de persistencia |
-| **Spring Data JPA** | Repositorios automaticos |
-| **H2** | Base de datos en memoria (desarrollo) |
-| **PostgreSQL 16** | Base de datos en produccion |
-
-### Framework Web
-
-| Tecnologia | Para que |
-|------------|----------|
-| **Spring Boot 4** | Framework principal, autoconfig |
-| **Spring Web MVC** | Controladores REST |
-| **Jackson** | Serializacion JSON automatica |
-| **SpringDoc OpenAPI** | Documentacion Swagger automatica |
-| **Lombok** | Reducir boilerplate (getters, setters) |
-
-### Infraestructura
-
-| Tecnologia | Para que |
-|------------|----------|
-| **Docker** | Contenedores |
-| **Docker Compose** | Orquestacion multi-contenedor |
-| **GitHub Actions** | CI/CD automatizado |
-| **Railway** | Deploy en produccion |
-
-### Herramientas
-
-| Herramienta | Para que |
-|-------------|----------|
-| **IntelliJ IDEA** | IDE principal |
-| **DBeaver** | Cliente de base de datos |
-| **Postman** | Pruebas de API REST |
-| **Git + GitHub** | Control de versiones |
+El hilo conductor es un proyecto de **Pizzeria** que evoluciona contigo. Arrancas con Java puro, le agregas Maven, despues Hibernate para guardar datos, luego Spring Boot para convertirla en API REST, y al final la metes en Docker y la despliegas en Railway. Cada dia construye sobre lo anterior, sin saltos.
 
 ---
 
-## Modulos del Curso
+## Para quien es
 
-| Dia | Tema | Proyecto |
-|:---:|------|----------|
-| 6 | Maven + Streams | Pizzeria con Maven y Gson |
-| 7 | Maven + Pizzeria | Pizzeria v4 (Maven + dependencias) |
-| 8 | Maven avanzado | mi-biblioteca (scopes, lifecycle, JUnit 5) |
-| 9 | Hibernate intro | curso-hibernate (ORM, EntityManager, CRUD) |
-| 10 | Pizzeria + Hibernate | Pizzeria v5 (Hibernate + H2 + relaciones JPA) |
-| 11 | Spring Boot intro | demo-spring (IoC, Lombok, REST, Swagger) |
-| 12 | Pizzeria Spring Boot | Pizzeria v6 (API REST completa + validacion) |
-| 13-14 | Proyecto personal | Blueprint individual (16 opciones) |
-| 15 | Docker intro | Dockerfile, build, run |
-| 16 | Docker Compose | PostgreSQL + Adminer + app |
-| 17 | CI/CD | GitHub Actions + deploy automatico |
-| 18 | Proyecto + Docker + CI/CD | Integracion completa + Railway |
-| 19 | Preparar presentacion | Documentacion y ensayo |
-| 20 | Demo Day | Presentacion publica de proyectos |
+- **Si vienes de otro lenguaje** y quieres aprender el ecosistema Java/Spring profesional.
+- **Si estas empezando** y quieres un camino estructurado, no videos sueltos de YouTube.
+- **Si quieres portfolio real**: al terminar tienes un proyecto desplegado en produccion con Swagger, Docker y CI/CD.
 
-> Los dias 10-20 se publicaran a medida que avance el curso.
+No necesitas experiencia previa en Java. Los primeros 5 dias cubren los fundamentos desde cero.
 
 ---
 
-## Inicio Rapido
+## Como participar (comunidad)
+
+Este curso fue disenado para impartirse con profesor, pero todo el material esta abierto para que lo hagas por tu cuenta. Asi funciona:
 
 ### 1. Haz fork de este repositorio
 
-Click en el boton **Fork** (arriba a la derecha en GitHub).
+Click en el boton **Fork** arriba a la derecha. Eso crea tu copia personal.
 
-### 2. Clona tu fork
+### 2. Clona tu fork en tu maquina
 
 ```bash
 git clone https://github.com/TU_USUARIO/curso-spring-hibernate.git
 cd curso-spring-hibernate
-```
-
-### 3. Configura el upstream
-
-```bash
 git remote add upstream https://github.com/TodoEconometria/curso-spring-hibernate.git
 ```
 
-### 4. Abre los manuales
+### 3. Sigue los manuales en orden
 
-Los manuales estan en la carpeta `manuales/`. Empieza por `00_INDICE_CURSO.md`.
+Abre la carpeta `manuales/` y empieza por el dia 1. Cada guia te dice que aprender y que construir ese dia. Son 20 dias de contenido.
 
-**Guia detallada:** [docs/git-github/fork-clone.md](docs/git-github/fork-clone.md)
+### 4. Elige tu proyecto personal
+
+En los dias 13-14, eliges uno de los 16 **blueprints** disponibles (cine, zoo, peluqueria, bar, etc.) y construyes tu propia API con Spring Boot + Hibernate.
+
+### 5. Entrega tu trabajo final
+
+Cuando termines, copia la plantilla a tu carpeta de comunidad:
+
+```bash
+cp -r trabajo_final/plantilla/ entregas/trabajo_final/comunidad/TU_USUARIO/
+```
+
+Completa los archivos (especialmente `PROMPTS.md` donde documentas como usaste IA) y sube con `git push` a tu fork.
+
+### 6. Mantente al dia
+
+Si agregamos material nuevo, sincroniza tu fork:
+
+```bash
+git fetch upstream
+git merge upstream/main
+```
 
 ---
 
-## Estructura del Repositorio
+## Que incluye
+
+| 100 Horas | 20 Sesiones | 16 Blueprints | 20 Guias | 8+ Tecnologias |
+|:---------:|:-----------:|:-------------:|:--------:|:--------------:|
+| de contenido | de clase | proyectos individuales | dia a dia | profesionales |
+
+### Recorrido del curso
+
+| Semana | Dias | Que aprendes |
+|:------:|:----:|-------------|
+| 1 | 1-5 | Java desde cero: fundamentos, POO, interfaces, herencia, arquitectura por capas, Maven |
+| 2 | 6-10 | Maven avanzado, Streams, Hibernate, JPA, relaciones entre entidades, H2 |
+| 3 | 11-14 | Spring Boot, REST APIs, Swagger, Lombok, proyecto personal con blueprint |
+| 4 | 15-18 | Docker, Docker Compose, PostgreSQL, GitHub Actions, deploy en Railway |
+| 5 | 19-20 | Preparar presentacion y Demo Day |
+
+### La Pizzeria: el hilo conductor
+
+Un unico proyecto que evoluciona a lo largo del curso:
+
+```
+Dia 3  - Java puro: interfaces, herencia, polimorfismo
+Dia 4  - Arquitectura: paquetes, Repository, Service, excepciones
+Dia 7  - Maven + Gson: exportar pedidos a JSON
+Dia 10 - Hibernate + H2: Pizza, Cliente, Pedido como @Entity
+Dia 12 - Spring Boot: API REST completa con Swagger
+Dia 16 - Docker Compose: PostgreSQL + Adminer + app
+Dia 18 - Deploy en Railway con CI/CD automatico
+```
+
+---
+
+## Tecnologias
+
+**Lenguaje:** Java 21 (LTS) con Maven 3.9+
+
+**Backend:** Spring Boot 4, Spring Web MVC, Spring Data JPA, Hibernate 7, Lombok, SpringDoc OpenAPI (Swagger)
+
+**Base de datos:** H2 (desarrollo), PostgreSQL 16 (produccion)
+
+**Infraestructura:** Docker, Docker Compose, GitHub Actions, Railway
+
+**Herramientas:** IntelliJ IDEA, DBeaver, Postman, Git + GitHub
+
+---
+
+## Estructura del repositorio
 
 ```
 curso-spring-hibernate/
-├── manuales/                   # 15 manuales paso a paso
-│   ├── 00_INDICE_CURSO.md
-│   ├── DIA_06_MANUAL_MAVEN_STREAMS.md
-│   ├── ...
-│   └── DIA_20_MANUAL_DEMO_DAY.md
-│
-├── pizzeria/                   # Codigo esqueleto de la Pizzeria (v3.1)
-│   └── src/com/pizzeria/...
-│
-├── blueprints/                 # 16 proyectos individuales para elegir
-│   ├── README.md
-│   ├── 01_CineEstrella.md
-│   ├── ...
-│   └── 16_BarajaEspanola.md
-│
-├── entregas/                   # Zona de entregas del alumno
-│   ├── ejercicios/
-│   └── trabajo_final/
-│
-├── trabajo_final/              # Enunciado + plantilla del trabajo final
-│   ├── README.md
-│   └── plantilla/
-│
-└── docs/git-github/            # Guias de Git y GitHub
+  manuales/           20 guias dia a dia (DIA_01 a DIA_20)
+  pizzeria/           Codigo esqueleto de la Pizzeria
+  blueprints/         16 proyectos individuales para elegir
+  entregas/           Zona de entregas (ejercicios + trabajo final)
+  trabajo_final/      Enunciado + plantilla
+  docs/               Sitio web del curso
 ```
 
 ---
 
-## Proyecto Pizzeria — El Hilo Conductor
+## Metodologia
 
-La Pizzeria es un proyecto que **evoluciona** a lo largo del curso:
-
-| Version | Dia | Tecnologia |
-|:-------:|:---:|------------|
-| v1-v3 | 1-5 | Java puro (compilacion manual) |
-| v4 | 6-7 | Maven + Gson |
-| v5 | 9-10 | Hibernate + H2 |
-| v6 | 11-12 | Spring Boot REST API |
-| v7 | 15-18 | Docker + PostgreSQL + CI/CD |
-
-Cada version construye sobre la anterior. El codigo esqueleto (v3.1) esta en la carpeta `pizzeria/`.
-
----
-
-## Blueprints — Proyectos Individuales
-
-En los dias 13-14, cada alumno elige **uno** de los 16 blueprints disponibles para construir su propio proyecto con Spring Boot + Hibernate.
-
-Ver la lista completa en [`blueprints/README.md`](blueprints/README.md).
-
----
-
-## Trabajo Final
-
-El trabajo final integra TODO lo aprendido: Spring Boot + Hibernate + Docker + CI/CD.
-
-Ver enunciado completo en [`trabajo_final/README.md`](trabajo_final/README.md).
+- **Aprendizaje progresivo:** un unico proyecto (Pizzeria) evoluciona desde Java puro hasta Docker + CI/CD. Cada dia construye sobre lo anterior.
+- **Blueprints individuales:** cada alumno aplica lo aprendido a un dominio diferente (16 proyectos unicos), evitando la copia.
+- **Deploy real:** cada proyecto se despliega en Railway con PostgreSQL, no solo en entorno local.
+- **Evaluacion por prompts:** los alumnos documentan como usaron IA, fomentando el uso honesto y consciente.
+- **Material abierto:** todo disponible bajo licencia CC BY-NC-SA 4.0.
 
 ---
 
 ## Instructor
 
-**Juan Marcelo Gutierrez Miranda** — [@TodoEconometria](https://www.linkedin.com/in/juangutierrezconsultor/)
+**Juan Marcelo Gutierrez Miranda** | [@TodoEconometria](https://www.linkedin.com/in/juangutierrezconsultor/)
 
-10+ anos en desarrollo de software y formacion. Instructor en toda Latinoamerica y Espana.
+10+ anos en desarrollo de software y formacion. Instructor en Latinoamerica y Espana.
 
-**Contacto:**
-- Email: cursos@todoeconometria.com
-- LinkedIn: [Juan Gutierrez](https://www.linkedin.com/in/juangutierrezconsultor/)
-- Web: [todoeconometria.com](https://www.todoeconometria.com)
-- YouTube: [TodoEconometria](https://www.youtube.com/channel/UC2ok03ltDHcVo1PZ1C8mGeg)
-- GitHub: [TodoEconometria](https://github.com/TodoEconometria)
+| | |
+|---|---|
+| Web | [todoeconometria.com](https://www.todoeconometria.com) |
+| LinkedIn | [Juan Gutierrez](https://www.linkedin.com/in/juangutierrezconsultor/) |
+| YouTube | [TodoEconometria](https://www.youtube.com/channel/UC2ok03ltDHcVo1PZ1C8mGeg) |
+| GitHub | [TodoEconometria](https://github.com/TodoEconometria) |
 
 ---
 
 <div align="center">
 
-**© 2026 Juan Marcelo Gutierrez Miranda** — Material Educativo — CC BY-NC-SA 4.0
+2025-2026 Juan Marcelo Gutierrez Miranda | Material Educativo Abierto
 
-**Hash ID:** 7a3f1b9c4d8e2f5a6b0c9d8e7f1a2b3c4d5e6f7a8b9c0d1e2f3a4b5c6d7e8f9a
+Licencia [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) | Uso libre no comercial con atribucion
 
 </div>
