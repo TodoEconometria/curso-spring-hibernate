@@ -1,0 +1,1182 @@
+
+<!doctype html>
+<html lang="es" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Curso completo de Spring Boot + Hibernate, desde Java puro hasta Docker y CI/CD">
+      
+      
+        <meta name="author" content="Juan Gutierrez - TodoEconometria">
+      
+      
+        <link rel="canonical" href="https://todoeconometria.github.io/curso-spring-hibernate/ranking/">
+      
+      
+        <link rel="prev" href="../evaluacion/">
+      
+      
+        <link rel="next" href="../git-github/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/todoeconometria_logo.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Ranking - Spring Boot + Hibernate — De Cero a Produccion</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#ranking-de-estudiantes" class="md-skip">
+          Saltar a contenido
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabecera">
+    <a href=".." title="Spring Boot + Hibernate — De Cero a Produccion" class="md-header__button md-logo" aria-label="Spring Boot + Hibernate — De Cero a Produccion" data-md-component="logo">
+      
+  <img src="../assets/todoeconometria_logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Spring Boot + Hibernate — De Cero a Produccion
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Ranking
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Cambiar a modo oscuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo oscuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="green" data-md-color-accent="light-green"  aria-label="Cambiar a modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Cambiar a modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Búsqueda" placeholder="Búsqueda" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Buscar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpiar" aria-label="Limpiar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando búsqueda
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/TodoEconometria/curso-spring-hibernate" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TodoEconometria/curso-spring-hibernate
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="Pestañas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../guia-inicio/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Guia de Inicio
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../blueprints/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Blueprints
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../evaluacion/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Evaluacion
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Ranking
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../git-github/" class="md-tabs__link">
+          
+  
+  
+  Git y GitHub
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegación" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Spring Boot + Hibernate — De Cero a Produccion" class="md-nav__button md-logo" aria-label="Spring Boot + Hibernate — De Cero a Produccion" data-md-component="logo">
+      
+  <img src="../assets/todoeconometria_logo.png" alt="logo">
+
+    </a>
+    Spring Boot + Hibernate — De Cero a Produccion
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/TodoEconometria/curso-spring-hibernate" title="Ir al repositorio" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    TodoEconometria/curso-spring-hibernate
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../guia-inicio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guia de Inicio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../blueprints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Blueprints
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../evaluacion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Evaluacion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ranking
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Git y GitHub
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Git y GitHub
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-github/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Referencia rapida
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-github/fork-clone/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Fork y clone
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-github/sincronizar-fork/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Sincronizar fork
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-github/comandos-utiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Comandos utiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../git-github/crear-repo-portfolio/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Crear repo de portfolio
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+                
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" hidden>
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Tabla de contenidos">
+  
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+  
+
+
+
+  
+  
+
+
+<h1 id="ranking-de-estudiantes">Ranking de Estudiantes<a class="headerlink" href="#ranking-de-estudiantes" title="Permanent link">&para;</a></h1>
+<style>
+.podium-card {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+}
+.podium-card:hover {
+  transform: translateY(-10px) scale(1.04);
+}
+.podium-gold:hover {
+  box-shadow: 0 0 50px rgba(249,212,35,0.55), 0 10px 30px rgba(0,0,0,0.4) !important;
+}
+.podium-silver:hover {
+  box-shadow: 0 0 50px rgba(168,180,194,0.45), 0 10px 30px rgba(0,0,0,0.4) !important;
+}
+.podium-bronze:hover {
+  box-shadow: 0 0 50px rgba(205,127,50,0.45), 0 10px 30px rgba(0,0,0,0.4) !important;
+}
+.podium-card img {
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.podium-card:hover img {
+  transform: scale(1.12);
+}
+.podium-gold:hover img {
+  box-shadow: 0 0 30px rgba(249,212,35,0.7) !important;
+}
+.podium-silver:hover img {
+  box-shadow: 0 0 30px rgba(168,180,194,0.6) !important;
+}
+.podium-bronze:hover img {
+  box-shadow: 0 0 30px rgba(205,127,50,0.6) !important;
+}
+.podium-card .fork-btn {
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+.podium-card:hover .fork-btn {
+  transform: scale(1.05);
+}
+.stat-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+}
+.challenger-card {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: default;
+}
+.challenger-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 4px 20px rgba(102,126,234,0.2), 0 2px 10px rgba(0,0,0,0.3) !important;
+  border-color: rgba(102,126,234,0.25) !important;
+}
+.challenger-card:hover img {
+  border-color: #667eea !important;
+}
+details > summary {
+  list-style: none;
+}
+details > summary::-webkit-details-marker {
+  display: none;
+}
+details[open] > summary {
+  margin-bottom: 10px;
+}
+.logo-glow-wrap {
+  display: inline-block;
+  position: relative;
+  margin-bottom: 12px;
+}
+.logo-glow-wrap img {
+  display: block;
+  width: 200px;
+  height: auto;
+  border-radius: 15px;
+}
+.ecg-svg {
+  position: absolute;
+  bottom: -4px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: 32px;
+  z-index: 2;
+  pointer-events: none;
+}
+.sugerencias-expand > summary {
+  list-style: none;
+  transition: background 0.3s ease;
+}
+.sugerencias-expand > summary::-webkit-details-marker {
+  display: none;
+}
+.sugerencias-expand > summary:hover {
+  background: rgba(249,212,35,0.12) !important;
+}
+.sugerencias-expand[open] > summary {
+  border-color: rgba(249,212,35,0.3) !important;
+  margin-bottom: 0;
+}
+.challenger-wrapper {
+  background: linear-gradient(180deg, #1a1a2e, #16213e);
+  border-radius: 12px;
+  overflow: hidden;
+}
+.challenger-wrapper > .challenger-card {
+  background: none !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+}
+.challenger-wrapper > .sugerencias-expand {
+  padding: 0 14px 10px;
+}
+/* Responsive: tabla con scroll horizontal en movil */
+.ranking-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+/* Responsive: podio en columna en pantallas pequenas */
+@media (max-width: 700px) {
+  .podium-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 14px !important;
+  }
+  .podium-grid > div {
+    width: 90% !important;
+    min-height: auto !important;
+    max-width: 360px;
+  }
+  .podium-card {
+    min-height: auto !important;
+  }
+  .challengers-grid {
+    grid-template-columns: 1fr !important;
+    max-width: 100% !important;
+  }
+  .stat-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  .ranking-table-wrap table {
+    font-size: 0.85em;
+  }
+}
+@media (max-width: 480px) {
+  .stat-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .logo-glow-wrap img {
+    width: 140px !important;
+  }
+}
+</style>
+
+<div style="text-align: center; padding: 10px 0;">
+<div class="logo-glow-wrap"><img src="../assets/todoeconometria_logo.png" alt="TodoEconometria"><svg class="ecg-svg" viewBox="-5 -2 210 32"><defs><filter id="ecg-glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="ecg-colors" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="200" y2="0"><stop offset="0%" stop-color="#a51d4e"/><stop offset="20%" stop-color="#e63946"/><stop offset="40%" stop-color="#f4a233"/><stop offset="60%" stop-color="#2d8a56"/><stop offset="80%" stop-color="#3470bc"/><stop offset="100%" stop-color="#a51d4e"/></linearGradient></defs><path d="M -200,20 H -50 l 5,-3 l 5,3 l 5,0 l 2,3 l 2,-18 l 2,20 l 2,-5 l 5,0 l 4,-4 l 5,4 H 0 H 150 l 5,-3 l 5,3 l 5,0 l 2,3 l 2,-18 l 2,20 l 2,-5 l 5,0 l 4,-4 l 5,4 H 200 H 350 l 5,-3 l 5,3 l 5,0 l 2,3 l 2,-18 l 2,20 l 2,-5 l 5,0 l 4,-4 l 5,4 H 400" fill="none" stroke="url(#ecg-colors)" stroke-width="3" stroke-linecap="round" filter="url(#ecg-glow)" stroke-dasharray="90 642"><animate attributeName="stroke-dashoffset" from="0" to="-732" dur="3s" repeatCount="indefinite"/></path></svg></div>
+<p style="font-size: 1.1em; font-style: italic; color: #888;">
+Spring Boot + Hibernate — De Java a Docker
+</p>
+<p style="color: #666; font-size: 0.9em;">
+Ultima actualizacion: 2026-04-03 20:45 | Evaluacion automatica
+</p>
+</div>
+
+<hr />
+<h2 style="border: none;">Estadisticas del Curso</h2>
+
+<div class="stat-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 15px; margin: 30px 0; text-align: center;">
+<div class="stat-card" style="background: linear-gradient(180deg, #1a1a2e, #16213e); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.05);"><div style="font-size: 2.5em; font-weight: 900; color: #f39c12; text-shadow: 0 0 20px rgba(243,156,18,0.3);">13</div><div style="color: #888; font-size: 0.9em; margin-top: 4px;">Estudiantes</div></div><div class="stat-card" style="background: linear-gradient(180deg, #1a1a2e, #16213e); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.05);"><div style="font-size: 2.5em; font-weight: 900; color: #2ecc71; text-shadow: 0 0 20px rgba(46,204,113,0.3);">12</div><div style="color: #888; font-size: 0.9em; margin-top: 4px;">Aprobados</div></div><div class="stat-card" style="background: linear-gradient(180deg, #1a1a2e, #16213e); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.05);"><div style="font-size: 2.5em; font-weight: 900; color: #3498db; text-shadow: 0 0 20px rgba(52,152,219,0.3);">7.6</div><div style="color: #888; font-size: 0.9em; margin-top: 4px;">Promedio</div></div><div class="stat-card" style="background: linear-gradient(180deg, #1a1a2e, #16213e); border-radius: 12px; padding: 20px; border: 1px solid rgba(255,255,255,0.05);"><div style="font-size: 2.5em; font-weight: 900; color: #e74c3c; text-shadow: 0 0 20px rgba(231,76,60,0.3);">9</div><div style="color: #888; font-size: 0.9em; margin-top: 4px;">Destacados</div></div>
+</div>
+
+<hr />
+<h2 style="border: none;">Leaderboard</h2>
+
+<div class="podium-grid" style="display: grid; grid-template-columns: 1fr 1.2fr 1fr; gap: 14px; margin: 30px auto; max-width: 820px; align-items: end;">
+<div class="podium-card podium-silver" style="min-height: 300px; background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%); border-radius: 16px; padding: 22px 14px 18px; border: 1px solid #a8b4c240; box-shadow: 0 0 25px rgba(168,180,194,0.2), 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden;"><div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #a8b4c2, transparent);"></div><div style="font-size: 1.6em; font-weight: 900; color: #c0c0c0; text-shadow: 0 0 15px rgba(168,180,194,0.2); margin-bottom: 10px; letter-spacing: 2px;">#2</div><img src="https://github.com/gacastroo.png" alt="@gacastroo" style="width: 72px; height: 72px; border-radius: 50%; border: 3px solid #a8b4c2; box-shadow: 0 0 15px rgba(168,180,194,0.2); object-fit: cover; background: #2a2a3a;" onerror="this.style.display='none'"><div style="margin-top: 10px; font-weight: 700; color: #eee; font-size: 0.95em;">@gacastroo</div><div style="font-size: 2em; font-weight: 900; color: #c0c0c0; text-shadow: 0 0 10px rgba(168,180,194,0.2); margin: 4px 0; letter-spacing: 1px;">9.1<span style="display: inline-block; background: rgba(46,204,113,0.12); border: 1px solid rgba(46,204,113,0.3); border-radius: 10px; padding: 1px 8px; font-size: 0.45em; color: #2ecc71; font-weight: 700; margin-left: 4px;">&#8593; +1.1</span><span title="Semana 1 — penalizacion leve" style="display: inline-block; background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.3); border-radius: 10px; padding: 1px 8px; font-size: 0.4em; color: #e74c3c; font-weight: 600; margin-left: 4px; cursor: help;">&#9888; -5%</span></div><div style="width: 90%; margin: 10px 0 6px;"><div style="display: flex; align-items: center; gap: 5px; margin: 4px 0;"><span style="width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; background: #e8b84b; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.55em; color: #1a1a2e;">E</span><div style="flex: 1; background: #2a2a3a; border-radius: 4px; height: 7px; overflow: hidden;"><div style="width: 50%; background: linear-gradient(90deg, #e8b84b, #f9d423); height: 100%; border-radius: 4px;"></div></div><span style="font-size: 0.7em; color: #999; width: 28px; text-align: right;">3</span></div><div style="display: flex; align-items: center; gap: 5px; margin: 4px 0;"><span style="width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; background: #667eea; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.55em; color: #fff;">A</span><div style="flex: 1; background: #2a2a3a; border-radius: 4px; height: 7px; overflow: hidden;"><div style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; border-radius: 4px;"></div></div><span style="font-size: 0.7em; color: #999; width: 28px; text-align: right;">24</span></div></div><div style="margin: 4px 0;"><span style="display: inline-block; background: rgba(46,204,113,0.15); border: 1px solid rgba(46,204,113,0.4); border-radius: 10px; padding: 2px 10px; font-size: 0.65em; color: #2ecc71;">&#9881; Docker + Compose</span></div><div style="margin: 6px 0 4px; line-height: 1.8;"><span style="display: inline-block; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); border-radius: 10px; padding: 1px 9px; font-size: 0.68em; color: #8b9cf7; margin: 1px 2px;">Docker Pro</span><span style="display: inline-block; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); border-radius: 10px; padding: 1px 9px; font-size: 0.68em; color: #8b9cf7; margin: 1px 2px;">CI/CD</span><span style="display: inline-block; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); border-radius: 10px; padding: 1px 9px; font-size: 0.68em; color: #8b9cf7; margin: 1px 2px;">Pipeline Verde</span><span style="display: inline-block; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); border-radius: 10px; padding: 1px 9px; font-size: 0.68em; color: #8b9cf7; margin: 1px 2px;">3 Entidades</span></div><div style="display: flex; gap: 6px; margin-top: auto; flex-wrap: wrap; justify-content: center;"><a class="fork-btn" href="https://github.com/gacastroo/Escape_Room" target="_blank" style="color: #c0c0c0; text-decoration: none; font-size: 0.75em; padding: 5px 14px; border: 1px solid #a8b4c250; border-radius: 20px; background: #a8b4c210;">Ver Proyecto</a><a class="fork-btn" href="https://escaperoom-production-9a22.up.railway.app" target="_blank" style="color: #2ecc71; text-decoration: none; font-size: 0.75em; padding: 5px 14px; border: 1px solid #2ecc7150; border-radius: 20px; background: #2ecc7110;">🚀 Live Demo</a></div><details class="sugerencias-expand" style="width: 100%; margin-top: 8px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (2)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes una URL de deploy pero no responde. Verifica que tu app este corriendo en Railway/Render y que el puerto este bien configurado.</li></ol></div></details></div><div class="podium-card podium-gold" style="min-height: 360px; background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%); border-radius: 16px; padding: 22px 14px 18px; border: 1px solid #f9d42340; box-shadow: 0 0 25px rgba(249,212,35,0.3), 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden;"><div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #f9d423, transparent);"></div><div style="font-size: 1.6em; font-weight: 900; color: #f9d423; text-shadow: 0 0 15px rgba(249,212,35,0.3); margin-bottom: 10px; letter-spacing: 2px;">#1</div><img src="https://github.com/jcherrerasan.png" alt="@jcherrerasan" style="width: 90px; height: 90px; border-radius: 50%; border: 3px solid #f9d423; box-shadow: 0 0 15px rgba(249,212,35,0.3); object-fit: cover; background: #2a2a3a;" onerror="this.style.display='none'"><div style="margin-top: 10px; font-weight: 700; color: #eee; font-size: 0.95em;">@jcherrerasan</div><div style="font-size: 2.6em; font-weight: 900; color: #f9d423; text-shadow: 0 0 10px rgba(249,212,35,0.3); margin: 4px 0; letter-spacing: 1px;">9.5<span style="display: inline-block; background: rgba(46,204,113,0.12); border: 1px solid rgba(46,204,113,0.3); border-radius: 10px; padding: 1px 8px; font-size: 0.45em; color: #2ecc71; font-weight: 700; margin-left: 4px;">&#8593; +1.0</span><span title="Semana 1 — penalizacion leve" style="display: inline-block; background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.3); border-radius: 10px; padding: 1px 8px; font-size: 0.4em; color: #e74c3c; font-weight: 600; margin-left: 4px; cursor: help;">&#9888; -5%</span></div><div style="width: 90%; margin: 10px 0 6px;"><div style="display: flex; align-items: center; gap: 5px; margin: 4px 0;"><span style="width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; background: #e8b84b; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.55em; color: #1a1a2e;">E</span><div style="flex: 1; background: #2a2a3a; border-radius: 4px; height: 7px; overflow: hidden;"><div style="width: 100%; background: linear-gradient(90deg, #e8b84b, #f9d423); height: 100%; border-radius: 4px;"></div></div><span style="font-size: 0.7em; color: #999; width: 28px; text-align: right;">6</span></div><div style="display: flex; align-items: center; gap: 5px; margin: 4px 0;"><span style="width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; background: #667eea; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.55em; color: #fff;">A</span><div style="flex: 1; background: #2a2a3a; border-radius: 4px; height: 7px; overflow: hidden;"><div style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; border-radius: 4px;"></div></div><span style="font-size: 0.7em; color: #999; width: 28px; text-align: right;">28</span></div></div><div style="margin: 4px 0;"><span style="display: inline-block; background: rgba(46,204,113,0.15); border: 1px solid rgba(46,204,113,0.4); border-radius: 10px; padding: 2px 10px; font-size: 0.65em; color: #2ecc71;">&#9881; Docker + Compose</span></div><div style="margin: 6px 0 4px; line-height: 1.8;"><span style="display: inline-block; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); border-radius: 10px; padding: 1px 9px; font-size: 0.68em; color: #8b9cf7; margin: 1px 2px;">Docker Pro</span><span style="display: inline-block; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); border-radius: 10px; padding: 1px 9px; font-size: 0.68em; color: #8b9cf7; margin: 1px 2px;">CI/CD</span><span style="display: inline-block; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); border-radius: 10px; padding: 1px 9px; font-size: 0.68em; color: #8b9cf7; margin: 1px 2px;">Pipeline Verde</span><span style="display: inline-block; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); border-radius: 10px; padding: 1px 9px; font-size: 0.68em; color: #8b9cf7; margin: 1px 2px;">6 Entidades</span></div><div style="display: flex; gap: 6px; margin-top: auto; flex-wrap: wrap; justify-content: center;"><a class="fork-btn" href="https://github.com/jcherrerasan/Domus_Asesores" target="_blank" style="color: #f9d423; text-decoration: none; font-size: 0.75em; padding: 5px 14px; border: 1px solid #f9d42350; border-radius: 20px; background: #f9d42310;">Ver Proyecto</a></div><details class="sugerencias-expand" style="width: 100%; margin-top: 8px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (1)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></div><div class="podium-card podium-bronze" style="min-height: 280px; background: linear-gradient(180deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%); border-radius: 16px; padding: 22px 14px 18px; border: 1px solid #cd7f3240; box-shadow: 0 0 25px rgba(205,127,50,0.2), 0 4px 15px rgba(0,0,0,0.3); display: flex; flex-direction: column; align-items: center; position: relative; overflow: hidden;"><div style="position: absolute; top: 0; left: 0; right: 0; height: 3px; background: linear-gradient(90deg, transparent, #cd7f32, transparent);"></div><div style="font-size: 1.6em; font-weight: 900; color: #cd7f32; text-shadow: 0 0 15px rgba(205,127,50,0.2); margin-bottom: 10px; letter-spacing: 2px;">#3</div><img src="https://github.com/RafaelLibrero.png" alt="@RafaelLibrero" style="width: 72px; height: 72px; border-radius: 50%; border: 3px solid #cd7f32; box-shadow: 0 0 15px rgba(205,127,50,0.2); object-fit: cover; background: #2a2a3a;" onerror="this.style.display='none'"><div style="margin-top: 10px; font-weight: 700; color: #eee; font-size: 0.95em;">@RafaelLibrero</div><div style="font-size: 2em; font-weight: 900; color: #cd7f32; text-shadow: 0 0 10px rgba(205,127,50,0.2); margin: 4px 0; letter-spacing: 1px;">8.9<span style="display: inline-block; background: rgba(46,204,113,0.12); border: 1px solid rgba(46,204,113,0.3); border-radius: 10px; padding: 1px 8px; font-size: 0.45em; color: #2ecc71; font-weight: 700; margin-left: 4px;">&#8593; +1.8</span><span title="Semana 1 — penalizacion leve" style="display: inline-block; background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.3); border-radius: 10px; padding: 1px 8px; font-size: 0.4em; color: #e74c3c; font-weight: 600; margin-left: 4px; cursor: help;">&#9888; -5%</span></div><div style="width: 90%; margin: 10px 0 6px;"><div style="display: flex; align-items: center; gap: 5px; margin: 4px 0;"><span style="width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; background: #e8b84b; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.55em; color: #1a1a2e;">E</span><div style="flex: 1; background: #2a2a3a; border-radius: 4px; height: 7px; overflow: hidden;"><div style="width: 67%; background: linear-gradient(90deg, #e8b84b, #f9d423); height: 100%; border-radius: 4px;"></div></div><span style="font-size: 0.7em; color: #999; width: 28px; text-align: right;">4</span></div><div style="display: flex; align-items: center; gap: 5px; margin: 4px 0;"><span style="width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; background: #667eea; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.55em; color: #fff;">A</span><div style="flex: 1; background: #2a2a3a; border-radius: 4px; height: 7px; overflow: hidden;"><div style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; border-radius: 4px;"></div></div><span style="font-size: 0.7em; color: #999; width: 28px; text-align: right;">16</span></div></div><div style="margin: 4px 0;"><span style="display: inline-block; background: rgba(46,204,113,0.15); border: 1px solid rgba(46,204,113,0.4); border-radius: 10px; padding: 2px 10px; font-size: 0.65em; color: #2ecc71;">&#9881; Docker + Compose</span></div><div style="margin: 6px 0 4px; line-height: 1.8;"><span style="display: inline-block; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); border-radius: 10px; padding: 1px 9px; font-size: 0.68em; color: #8b9cf7; margin: 1px 2px;">Docker Pro</span><span style="display: inline-block; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); border-radius: 10px; padding: 1px 9px; font-size: 0.68em; color: #8b9cf7; margin: 1px 2px;">CI/CD</span><span style="display: inline-block; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); border-radius: 10px; padding: 1px 9px; font-size: 0.68em; color: #8b9cf7; margin: 1px 2px;">Pipeline Verde</span><span style="display: inline-block; background: rgba(102,126,234,0.12); border: 1px solid rgba(102,126,234,0.25); border-radius: 10px; padding: 1px 9px; font-size: 0.68em; color: #8b9cf7; margin: 1px 2px;">4 Entidades</span></div><div style="display: flex; gap: 6px; margin-top: auto; flex-wrap: wrap; justify-content: center;"><a class="fork-btn" href="https://github.com/RafaelLibrero/BoxBoxApi-Spring" target="_blank" style="color: #cd7f32; text-decoration: none; font-size: 0.75em; padding: 5px 14px; border: 1px solid #cd7f3250; border-radius: 20px; background: #cd7f3210;">Ver Proyecto</a><a class="fork-btn" href="https://boxboxapi-spring-production.up.railway.app" target="_blank" style="color: #2ecc71; text-decoration: none; font-size: 0.75em; padding: 5px 14px; border: 1px solid #2ecc7150; border-radius: 20px; background: #2ecc7110;">🚀 Live Demo</a></div><details class="sugerencias-expand" style="width: 100%; margin-top: 8px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (2)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes una URL de deploy pero no responde. Verifica que tu app este corriendo en Railway/Render y que el puerto este bien configurado.</li></ol></div></details></div>
+</div>
+
+<hr />
+<h2 style="border: none;">Clasificados</h2>
+
+<div class="challengers-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 10px; margin: 20px auto; max-width: 820px;">
+<div class="challenger-wrapper"><div class="challenger-card" style="background: linear-gradient(180deg, #1a1a2e, #16213e); border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);"><div style="font-size: 1.3em; font-weight: 900; color: #555; min-width: 32px; text-align: center;">#4</div><img src="https://github.com/LilitKhach.png" alt="@LilitKhach" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #333; object-fit: cover; background: #2a2a3a; flex-shrink: 0;" onerror="this.style.display='none'"><div style="flex: 1; min-width: 0;"><span style="font-weight: 700; color: #eee; font-size: 0.88em;">@LilitKhach</span><div style="width: 100%; margin: 6px 0 4px;"><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #e8b84b; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #1a1a2e;">E</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 50%; background: linear-gradient(90deg, #e8b84b, #f9d423); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">3</span></div><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #667eea; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #fff;">A</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">13</span></div></div></div><div style="text-align: center; flex-shrink: 0;"><div style="font-size: 1.5em; font-weight: 900; color: #3498db; text-shadow: 0 0 8px rgba(52,152,219,0.3);">8.1</div><a href="https://github.com/LilitKhach/analizador-de-contratos" target="_blank" style="color: #667eea; text-decoration: none; font-size: 0.68em; border: 1px solid #667eea40; border-radius: 12px; padding: 2px 10px; display: inline-block; margin-top: 3px;">Ver Proyecto</a></div></div><details class="sugerencias-expand" style="width: 100%; margin-top: 8px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (7)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes mas controllers (7) que services (3). Cada controller deberia delegar en su service.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 1 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes docker-compose pero no .env.example. Crea uno para que otros sepan que variables de entorno necesitan configurar.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Capturas de pantalla</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Anade capturas de Swagger UI en tu README (docs/screenshots/). Demuestra visualmente que tu API funciona.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></div><div class="challenger-wrapper"><div class="challenger-card" style="background: linear-gradient(180deg, #1a1a2e, #16213e); border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);"><div style="font-size: 1.3em; font-weight: 900; color: #555; min-width: 32px; text-align: center;">#5</div><img src="https://github.com/fdezgj.png" alt="@fdezgj" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #333; object-fit: cover; background: #2a2a3a; flex-shrink: 0;" onerror="this.style.display='none'"><div style="flex: 1; min-width: 0;"><span style="font-weight: 700; color: #eee; font-size: 0.88em;">@fdezgj</span><div style="width: 100%; margin: 6px 0 4px;"><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #e8b84b; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #1a1a2e;">E</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 83%; background: linear-gradient(90deg, #e8b84b, #f9d423); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">5</span></div><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #667eea; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #fff;">A</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">17</span></div></div></div><div style="text-align: center; flex-shrink: 0;"><div style="font-size: 1.5em; font-weight: 900; color: #3498db; text-shadow: 0 0 8px rgba(52,152,219,0.3);">7.8</div><a href="https://github.com/fdezgj/Biblioteca" target="_blank" style="color: #667eea; text-decoration: none; font-size: 0.68em; border: 1px solid #667eea40; border-radius: 12px; padding: 2px 10px; display: inline-block; margin-top: 3px;">Ver Proyecto</a></div></div><details class="sugerencias-expand" style="width: 100%; margin-top: 8px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (6)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes mas controllers (7) que services (5). Cada controller deberia delegar en su service.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 1 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Descripcion del proyecto, Tecnologias usadas, Como ejecutar, Endpoints / API, Capturas de pantalla</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Anade capturas de Swagger UI en tu README (docs/screenshots/). Demuestra visualmente que tu API funciona.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></div><div class="challenger-wrapper"><div class="challenger-card" style="background: linear-gradient(180deg, #1a1a2e, #16213e); border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);"><div style="font-size: 1.3em; font-weight: 900; color: #555; min-width: 32px; text-align: center;">#6</div><img src="https://github.com/miguelitomola.png" alt="@miguelitomola" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #333; object-fit: cover; background: #2a2a3a; flex-shrink: 0;" onerror="this.style.display='none'"><div style="flex: 1; min-width: 0;"><span style="font-weight: 700; color: #eee; font-size: 0.88em;">@miguelitomola</span><div style="width: 100%; margin: 6px 0 4px;"><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #e8b84b; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #1a1a2e;">E</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 83%; background: linear-gradient(90deg, #e8b84b, #f9d423); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">5</span></div><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #667eea; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #fff;">A</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">19</span></div></div></div><div style="text-align: center; flex-shrink: 0;"><div style="font-size: 1.5em; font-weight: 900; color: #3498db; text-shadow: 0 0 8px rgba(52,152,219,0.3);">7.8</div><a href="https://github.com/miguelitomola/centro-de-dia-api" target="_blank" style="color: #667eea; text-decoration: none; font-size: 0.68em; border: 1px solid #667eea40; border-radius: 12px; padding: 2px 10px; display: inline-block; margin-top: 3px;">Ver Proyecto</a></div></div><details class="sugerencias-expand" style="width: 100%; margin-top: 8px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (7)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No usas DTOs. Exponer las entidades JPA directamente en la API es mala practica — crea clases DTO para request/response.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes Dockerfile pero no .dockerignore. Anadelo para excluir target/, .git/, .env y que la imagen sea mas ligera.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Tecnologias usadas, Capturas de pantalla</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Anade capturas de Swagger UI en tu README (docs/screenshots/). Demuestra visualmente que tu API funciona.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></div><div class="challenger-wrapper"><div class="challenger-card" style="background: linear-gradient(180deg, #1a1a2e, #16213e); border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);"><div style="font-size: 1.3em; font-weight: 900; color: #555; min-width: 32px; text-align: center;">#7</div><img src="https://github.com/javierfajardo01.png" alt="@javierfajardo01" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #333; object-fit: cover; background: #2a2a3a; flex-shrink: 0;" onerror="this.style.display='none'"><div style="flex: 1; min-width: 0;"><span style="font-weight: 700; color: #eee; font-size: 0.88em;">@javierfajardo01</span><div style="width: 100%; margin: 6px 0 4px;"><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #e8b84b; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #1a1a2e;">E</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 67%; background: linear-gradient(90deg, #e8b84b, #f9d423); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">4</span></div><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #667eea; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #fff;">A</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">14</span></div></div></div><div style="text-align: center; flex-shrink: 0;"><div style="font-size: 1.5em; font-weight: 900; color: #3498db; text-shadow: 0 0 8px rgba(52,152,219,0.3);">7.6</div><a href="https://github.com/javierfajardo01/cine-estrella" target="_blank" style="color: #667eea; text-decoration: none; font-size: 0.68em; border: 1px solid #667eea40; border-radius: 12px; padding: 2px 10px; display: inline-block; margin-top: 3px;">Ver Proyecto</a></div></div><details class="sugerencias-expand" style="width: 100%; margin-top: 8px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (7)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes mas controllers (6) que services (4). Cada controller deberia delegar en su service.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No usas DTOs. Exponer las entidades JPA directamente en la API es mala practica — crea clases DTO para request/response.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 1 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Descripcion del proyecto, Tecnologias usadas, Como ejecutar</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></div><div class="challenger-wrapper"><div class="challenger-card" style="background: linear-gradient(180deg, #1a1a2e, #16213e); border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);"><div style="font-size: 1.3em; font-weight: 900; color: #555; min-width: 32px; text-align: center;">#8</div><img src="https://github.com/M4RCOSARDID.png" alt="@M4RCOSARDID" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #333; object-fit: cover; background: #2a2a3a; flex-shrink: 0;" onerror="this.style.display='none'"><div style="flex: 1; min-width: 0;"><span style="font-weight: 700; color: #eee; font-size: 0.88em;">@M4RCOSARDID</span><div style="width: 100%; margin: 6px 0 4px;"><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #e8b84b; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #1a1a2e;">E</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 67%; background: linear-gradient(90deg, #e8b84b, #f9d423); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">4</span></div><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #667eea; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #fff;">A</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">14</span></div></div></div><div style="text-align: center; flex-shrink: 0;"><div style="font-size: 1.5em; font-weight: 900; color: #3498db; text-shadow: 0 0 8px rgba(52,152,219,0.3);">7.5</div><a href="https://github.com/M4RCOSARDID/sala-conciertos" target="_blank" style="color: #667eea; text-decoration: none; font-size: 0.68em; border: 1px solid #667eea40; border-radius: 12px; padding: 2px 10px; display: inline-block; margin-top: 3px;">Ver Proyecto</a></div></div><details class="sugerencias-expand" style="width: 100%; margin-top: 8px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (8)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes mas controllers (6) que services (4). Cada controller deberia delegar en su service.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No usas DTOs. Exponer las entidades JPA directamente en la API es mala practica — crea clases DTO para request/response.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 2 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes docker-compose pero no .env.example. Crea uno para que otros sepan que variables de entorno necesitan configurar.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Capturas de pantalla</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Anade capturas de Swagger UI en tu README (docs/screenshots/). Demuestra visualmente que tu API funciona.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></div><div class="challenger-wrapper"><div class="challenger-card" style="background: linear-gradient(180deg, #1a1a2e, #16213e); border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);"><div style="font-size: 1.3em; font-weight: 900; color: #555; min-width: 32px; text-align: center;">#9</div><img src="https://github.com/Fraile256.png" alt="@Fraile256" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #333; object-fit: cover; background: #2a2a3a; flex-shrink: 0;" onerror="this.style.display='none'"><div style="flex: 1; min-width: 0;"><span style="font-weight: 700; color: #eee; font-size: 0.88em;">@Fraile256</span><div style="width: 100%; margin: 6px 0 4px;"><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #e8b84b; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #1a1a2e;">E</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 67%; background: linear-gradient(90deg, #e8b84b, #f9d423); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">4</span></div><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #667eea; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #fff;">A</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 100%; background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">14</span></div></div></div><div style="text-align: center; flex-shrink: 0;"><div style="font-size: 1.5em; font-weight: 900; color: #3498db; text-shadow: 0 0 8px rgba(52,152,219,0.3);">7.2</div><a href="https://github.com/Fraile256/brisca" target="_blank" style="color: #667eea; text-decoration: none; font-size: 0.68em; border: 1px solid #667eea40; border-radius: 12px; padding: 2px 10px; display: inline-block; margin-top: 3px;">Ver Proyecto</a></div></div><details class="sugerencias-expand" style="width: 100%; margin-top: 8px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (9)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes mas controllers (6) que services (4). Cada controller deberia delegar en su service.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes relaciones basicas pero no usas cascade, fetch strategies ni @ManyToMany. Anade complejidad a tus relaciones.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No usas DTOs. Exponer las entidades JPA directamente en la API es mala practica — crea clases DTO para request/response.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 1 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes Dockerfile pero no .dockerignore. Anadelo para excluir target/, .git/, .env y que la imagen sea mas ligera.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes docker-compose pero no .env.example. Crea uno para que otros sepan que variables de entorno necesitan configurar.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></div><div class="challenger-wrapper"><div class="challenger-card" style="background: linear-gradient(180deg, #1a1a2e, #16213e); border-radius: 12px; padding: 14px; border: 1px solid rgba(255,255,255,0.06); display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 8px rgba(0,0,0,0.2);"><div style="font-size: 1.3em; font-weight: 900; color: #555; min-width: 32px; text-align: center;">#10</div><img src="https://github.com/MauGlezGar.png" alt="@MauGlezGar" style="width: 48px; height: 48px; border-radius: 50%; border: 2px solid #333; object-fit: cover; background: #2a2a3a; flex-shrink: 0;" onerror="this.style.display='none'"><div style="flex: 1; min-width: 0;"><span style="font-weight: 700; color: #eee; font-size: 0.88em;">@MauGlezGar</span><div style="width: 100%; margin: 6px 0 4px;"><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #e8b84b; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #1a1a2e;">E</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 67%; background: linear-gradient(90deg, #e8b84b, #f9d423); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">4</span></div><div style="display: flex; align-items: center; gap: 4px; margin: 2px 0;"><span style="width: 14px; height: 14px; border-radius: 3px; flex-shrink: 0; background: #667eea; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.5em; color: #fff;">A</span><div style="flex: 1; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 92%; background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; border-radius: 3px;"></div></div><span style="font-size: 0.65em; color: #999; width: 24px; text-align: right;">11</span></div></div></div><div style="text-align: center; flex-shrink: 0;"><div style="font-size: 1.5em; font-weight: 900; color: #3498db; text-shadow: 0 0 8px rgba(52,152,219,0.3);">6.2</div><a href="https://github.com/MauGlezGar/Basket-Nba" target="_blank" style="color: #667eea; text-decoration: none; font-size: 0.68em; border: 1px solid #667eea40; border-radius: 12px; padding: 2px 10px; display: inline-block; margin-top: 3px;">Ver Proyecto</a></div></div><details class="sugerencias-expand" style="width: 100%; margin-top: 8px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (10)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes 4 entidades pero solo 2 controllers. Idealmente cada entidad tiene su controller.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes GlobalExceptionHandler (@RestControllerAdvice). Sin el, los errores devuelven un stack trace feo al cliente. Crea uno.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 1 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes Dockerfile pero no .dockerignore. Anadelo para excluir target/, .git/, .env y que la imagen sea mas ligera.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes docker-compose pero no .env.example. Crea uno para que otros sepan que variables de entorno necesitan configurar.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Descripcion del proyecto, Tecnologias usadas, Como ejecutar, Endpoints / API, Capturas de pantalla</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Anade capturas de Swagger UI en tu README (docs/screenshots/). Demuestra visualmente que tu API funciona.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></div>
+</div>
+
+<hr />
+<h2 style="border: none;">Ranking Completo</h2>
+
+<div class="ranking-table-wrap">
+<table style="width: 100%; border-collapse: collapse; min-width: 700px;">
+<tr style="border-bottom: 2px solid rgba(102,126,234,0.3);"><th style="padding: 8px; text-align: center;">Pos</th><th style="padding: 8px; text-align: left;">Estudiante</th><th style="padding: 8px; text-align: center;">Nota</th><th style="padding: 8px; text-align: center;">Delta</th><th style="padding: 8px; text-align: center;">Estado</th><th style="padding: 8px; text-align: left;">Proyecto</th><th style="padding: 8px; text-align: center;">Enlace</th><th style="padding: 8px; text-align: center;">Demo</th></tr>
+<tr style="border-bottom: 1px solid rgba(128,128,128,0.2);"><td style="padding: 8px; text-align: center; font-weight: bold;">#1</td><td style="padding: 8px;">@jcherrerasan</td><td style="padding: 8px; text-align: center; font-weight: bold;">9.5 &#9888;-5%</td><td style="padding: 8px; text-align: center;"><b>&#8593; +1.0</b></td><td style="padding: 8px; text-align: center;">&#9733; Destacado</td><td style="padding: 8px;"><code>Domus_Asesores</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/jcherrerasan/Domus_Asesores" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;">—</td></tr>
+<tr><td colspan="8" style="padding: 0 8px 8px 8px;"><details class="sugerencias-expand" style="width: 100%; margin-top: 4px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (1)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></td></tr>
+<tr style="border-bottom: 1px solid rgba(128,128,128,0.2);"><td style="padding: 8px; text-align: center; font-weight: bold;">#2</td><td style="padding: 8px;">@gacastroo</td><td style="padding: 8px; text-align: center; font-weight: bold;">9.1 &#9888;-5%</td><td style="padding: 8px; text-align: center;"><b>&#8593; +1.1</b></td><td style="padding: 8px; text-align: center;">&#9733; Destacado</td><td style="padding: 8px;"><code>Escape_Room</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/gacastroo/Escape_Room" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;"><a href="https://escaperoom-production-9a22.up.railway.app" target="_blank">Live</a></td></tr>
+<tr><td colspan="8" style="padding: 0 8px 8px 8px;"><details class="sugerencias-expand" style="width: 100%; margin-top: 4px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (2)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes una URL de deploy pero no responde. Verifica que tu app este corriendo en Railway/Render y que el puerto este bien configurado.</li></ol></div></details></td></tr>
+<tr style="border-bottom: 1px solid rgba(128,128,128,0.2);"><td style="padding: 8px; text-align: center; font-weight: bold;">#3</td><td style="padding: 8px;">@RafaelLibrero</td><td style="padding: 8px; text-align: center; font-weight: bold;">8.9 &#9888;-5%</td><td style="padding: 8px; text-align: center;"><b>&#8593; +1.8</b></td><td style="padding: 8px; text-align: center;">&#9733; Destacado</td><td style="padding: 8px;"><code>BoxBoxApi-Spring</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/RafaelLibrero/BoxBoxApi-Spring" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;"><a href="https://boxboxapi-spring-production.up.railway.app" target="_blank">Live</a></td></tr>
+<tr><td colspan="8" style="padding: 0 8px 8px 8px;"><details class="sugerencias-expand" style="width: 100%; margin-top: 4px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (2)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes una URL de deploy pero no responde. Verifica que tu app este corriendo en Railway/Render y que el puerto este bien configurado.</li></ol></div></details></td></tr>
+<tr style="border-bottom: 1px solid rgba(128,128,128,0.2);"><td style="padding: 8px; text-align: center; font-weight: bold;">#4</td><td style="padding: 8px;">@LilitKhach</td><td style="padding: 8px; text-align: center; font-weight: bold;">8.1</td><td style="padding: 8px; text-align: center;">—</td><td style="padding: 8px; text-align: center;">&#9733; Destacado</td><td style="padding: 8px;"><code>analizador-de-contratos</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/LilitKhach/analizador-de-contratos" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;">—</td></tr>
+<tr><td colspan="8" style="padding: 0 8px 8px 8px;"><details class="sugerencias-expand" style="width: 100%; margin-top: 4px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (7)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes mas controllers (7) que services (3). Cada controller deberia delegar en su service.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 1 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes docker-compose pero no .env.example. Crea uno para que otros sepan que variables de entorno necesitan configurar.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Capturas de pantalla</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Anade capturas de Swagger UI en tu README (docs/screenshots/). Demuestra visualmente que tu API funciona.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></td></tr>
+<tr style="border-bottom: 1px solid rgba(128,128,128,0.2);"><td style="padding: 8px; text-align: center; font-weight: bold;">#5</td><td style="padding: 8px;">@fdezgj</td><td style="padding: 8px; text-align: center; font-weight: bold;">7.8</td><td style="padding: 8px; text-align: center;">—</td><td style="padding: 8px; text-align: center;">&#9733; Destacado</td><td style="padding: 8px;"><code>Biblioteca</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/fdezgj/Biblioteca" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;">—</td></tr>
+<tr><td colspan="8" style="padding: 0 8px 8px 8px;"><details class="sugerencias-expand" style="width: 100%; margin-top: 4px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (6)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes mas controllers (7) que services (5). Cada controller deberia delegar en su service.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 1 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Descripcion del proyecto, Tecnologias usadas, Como ejecutar, Endpoints / API, Capturas de pantalla</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Anade capturas de Swagger UI en tu README (docs/screenshots/). Demuestra visualmente que tu API funciona.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></td></tr>
+<tr style="border-bottom: 1px solid rgba(128,128,128,0.2);"><td style="padding: 8px; text-align: center; font-weight: bold;">#6</td><td style="padding: 8px;">@miguelitomola</td><td style="padding: 8px; text-align: center; font-weight: bold;">7.8</td><td style="padding: 8px; text-align: center;">—</td><td style="padding: 8px; text-align: center;">&#9733; Destacado</td><td style="padding: 8px;"><code>centro-de-dia-api</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/miguelitomola/centro-de-dia-api" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;">—</td></tr>
+<tr><td colspan="8" style="padding: 0 8px 8px 8px;"><details class="sugerencias-expand" style="width: 100%; margin-top: 4px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (7)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No usas DTOs. Exponer las entidades JPA directamente en la API es mala practica — crea clases DTO para request/response.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes Dockerfile pero no .dockerignore. Anadelo para excluir target/, .git/, .env y que la imagen sea mas ligera.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Tecnologias usadas, Capturas de pantalla</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Anade capturas de Swagger UI en tu README (docs/screenshots/). Demuestra visualmente que tu API funciona.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></td></tr>
+<tr style="border-bottom: 1px solid rgba(128,128,128,0.2);"><td style="padding: 8px; text-align: center; font-weight: bold;">#7</td><td style="padding: 8px;">@javierfajardo01</td><td style="padding: 8px; text-align: center; font-weight: bold;">7.6</td><td style="padding: 8px; text-align: center;">—</td><td style="padding: 8px; text-align: center;">&#9733; Destacado</td><td style="padding: 8px;"><code>cine-estrella</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/javierfajardo01/cine-estrella" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;">—</td></tr>
+<tr><td colspan="8" style="padding: 0 8px 8px 8px;"><details class="sugerencias-expand" style="width: 100%; margin-top: 4px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (7)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes mas controllers (6) que services (4). Cada controller deberia delegar en su service.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No usas DTOs. Exponer las entidades JPA directamente en la API es mala practica — crea clases DTO para request/response.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 1 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Descripcion del proyecto, Tecnologias usadas, Como ejecutar</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></td></tr>
+<tr style="border-bottom: 1px solid rgba(128,128,128,0.2);"><td style="padding: 8px; text-align: center; font-weight: bold;">#8</td><td style="padding: 8px;">@M4RCOSARDID</td><td style="padding: 8px; text-align: center; font-weight: bold;">7.5</td><td style="padding: 8px; text-align: center;">—</td><td style="padding: 8px; text-align: center;">&#9733; Destacado</td><td style="padding: 8px;"><code>sala-conciertos</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/M4RCOSARDID/sala-conciertos" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;">—</td></tr>
+<tr><td colspan="8" style="padding: 0 8px 8px 8px;"><details class="sugerencias-expand" style="width: 100%; margin-top: 4px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (8)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes mas controllers (6) que services (4). Cada controller deberia delegar en su service.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No usas DTOs. Exponer las entidades JPA directamente en la API es mala practica — crea clases DTO para request/response.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 2 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes docker-compose pero no .env.example. Crea uno para que otros sepan que variables de entorno necesitan configurar.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Capturas de pantalla</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Anade capturas de Swagger UI en tu README (docs/screenshots/). Demuestra visualmente que tu API funciona.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></td></tr>
+<tr style="border-bottom: 1px solid rgba(128,128,128,0.2);"><td style="padding: 8px; text-align: center; font-weight: bold;">#9</td><td style="padding: 8px;">@Fraile256</td><td style="padding: 8px; text-align: center; font-weight: bold;">7.2</td><td style="padding: 8px; text-align: center;">—</td><td style="padding: 8px; text-align: center;">&#9733; Destacado</td><td style="padding: 8px;"><code>brisca</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/Fraile256/brisca" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;">—</td></tr>
+<tr><td colspan="8" style="padding: 0 8px 8px 8px;"><details class="sugerencias-expand" style="width: 100%; margin-top: 4px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (9)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes mas controllers (6) que services (4). Cada controller deberia delegar en su service.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes relaciones basicas pero no usas cascade, fetch strategies ni @ManyToMany. Anade complejidad a tus relaciones.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No usas DTOs. Exponer las entidades JPA directamente en la API es mala practica — crea clases DTO para request/response.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 1 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes Dockerfile pero no .dockerignore. Anadelo para excluir target/, .git/, .env y que la imagen sea mas ligera.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes docker-compose pero no .env.example. Crea uno para que otros sepan que variables de entorno necesitan configurar.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></td></tr>
+<tr style="border-bottom: 1px solid rgba(128,128,128,0.2);"><td style="padding: 8px; text-align: center; font-weight: bold;">#10</td><td style="padding: 8px;">@MauGlezGar</td><td style="padding: 8px; text-align: center; font-weight: bold;">6.2</td><td style="padding: 8px; text-align: center;">—</td><td style="padding: 8px; text-align: center;">&#10003; Aprobado</td><td style="padding: 8px;"><code>Basket-Nba</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/MauGlezGar/Basket-Nba" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;">—</td></tr>
+<tr><td colspan="8" style="padding: 0 8px 8px 8px;"><details class="sugerencias-expand" style="width: 100%; margin-top: 4px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (10)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes 4 entidades pero solo 2 controllers. Idealmente cada entidad tiene su controller.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes GlobalExceptionHandler (@RestControllerAdvice). Sin el, los errores devuelven un stack trace feo al cliente. Crea uno.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 1 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes Dockerfile pero no .dockerignore. Anadelo para excluir target/, .git/, .env y que la imagen sea mas ligera.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes docker-compose pero no .env.example. Crea uno para que otros sepan que variables de entorno necesitan configurar.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Descripcion del proyecto, Tecnologias usadas, Como ejecutar, Endpoints / API, Capturas de pantalla</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Anade capturas de Swagger UI en tu README (docs/screenshots/). Demuestra visualmente que tu API funciona.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></td></tr>
+</table>
+</div>
+
+<details style="margin-top: 15px;">
+<summary style="cursor: pointer; color: #667eea; font-weight: 600; padding: 10px; background: linear-gradient(180deg, rgba(26,26,46,0.5), rgba(22,33,62,0.5)); border-radius: 8px; border: 1px solid rgba(102,126,234,0.2); text-align: center;">&#9660; Mostrar ranking completo (2 estudiantes mas)</summary>
+<table style="width: 100%; border-collapse: collapse; margin-top: 10px;">
+<tr style="border-bottom: 2px solid rgba(102,126,234,0.3);"><th style="padding: 8px; text-align: center;">Pos</th><th style="padding: 8px; text-align: left;">Estudiante</th><th style="padding: 8px; text-align: center;">Nota</th><th style="padding: 8px; text-align: center;">Delta</th><th style="padding: 8px; text-align: center;">Estado</th><th style="padding: 8px; text-align: left;">Proyecto</th><th style="padding: 8px; text-align: center;">Enlace</th><th style="padding: 8px; text-align: center;">Demo</th></tr>
+<tr style="border-bottom: 1px solid rgba(128,128,128,0.2);"><td style="padding: 8px; text-align: center; font-weight: bold;">#11</td><td style="padding: 8px;">@blnfern</td><td style="padding: 8px; text-align: center; font-weight: bold;">6.0 &#9888;-5%</td><td style="padding: 8px; text-align: center;"><b>&#8593; +0.9</b></td><td style="padding: 8px; text-align: center;">&#10003; Aprobado</td><td style="padding: 8px;"><code>paqueteria-spring</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/blnfern/paqueteria-spring" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;">—</td></tr>
+<tr><td colspan="8" style="padding: 0 8px 8px 8px;"><details class="sugerencias-expand" style="width: 100%; margin-top: 4px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (10)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes mas controllers (10) que services (8). Cada controller deberia delegar en su service.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No usas Bean Validation (@Valid, @NotNull, @NotBlank...). Anade validaciones a tus entidades o DTOs para evitar datos basura.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No usas DTOs. Exponer las entidades JPA directamente en la API es mala practica — crea clases DTO para request/response.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 1 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes Dockerfile. Es imprescindible para desplegar. Crea un Dockerfile multi-stage para tu app Spring Boot.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes docker-compose.yml. Con el puedes levantar tu app + base de datos con un solo comando.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Descripcion del proyecto, Tecnologias usadas, Como ejecutar, Endpoints / API, Capturas de pantalla</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Anade capturas de Swagger UI en tu README (docs/screenshots/). Demuestra visualmente que tu API funciona.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></td></tr>
+<tr style="border-bottom: 1px solid rgba(128,128,128,0.2);"><td style="padding: 8px; text-align: center; font-weight: bold;">#12</td><td style="padding: 8px;">@RaulVelasco21</td><td style="padding: 8px; text-align: center; font-weight: bold;">5.2</td><td style="padding: 8px; text-align: center;">—</td><td style="padding: 8px; text-align: center;">&#10003; Aprobado</td><td style="padding: 8px;"><code>futbol-primera</code></td><td style="padding: 8px; text-align: center;"><a href="https://github.com/RaulVelasco21/futbol-primera" target="_blank">Ver</a></td><td style="padding: 8px; text-align: center;">—</td></tr>
+<tr><td colspan="8" style="padding: 0 8px 8px 8px;"><details class="sugerencias-expand" style="width: 100%; margin-top: 4px;"><summary style="cursor: pointer; color: #b8860b; font-size: 0.75em; font-weight: 600; padding: 5px 10px; background: rgba(184,134,11,0.08); border: 1px solid rgba(184,134,11,0.2); border-radius: 8px; text-align: center; list-style: none;">Ver sugerencias (11)</summary><div style="background: rgba(128,128,128,0.1); border-radius: 8px; padding: 10px 14px; margin-top: 6px; border: 1px solid rgba(128,128,128,0.2);"><ol style="margin: 0; padding-left: 18px;"><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tienes relaciones basicas pero no usas cascade, fetch strategies ni @ManyToMany. Anade complejidad a tus relaciones.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes GlobalExceptionHandler (@RestControllerAdvice). Sin el, los errores devuelven un stack trace feo al cliente. Crea uno.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No usas DTOs. Exponer las entidades JPA directamente en la API es mala practica — crea clases DTO para request/response.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes enums. Usa enums para estados, tipos, categorias... en vez de Strings sueltos (ej: EstadoPedido, TipoUsuario).</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Solo tienes 1 archivo(s) de test. Intenta cubrir al menos los services principales.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes Dockerfile. Es imprescindible para desplegar. Crea un Dockerfile multi-stage para tu app Spring Boot.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes docker-compose.yml. Con el puedes levantar tu app + base de datos con un solo comando.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes CI/CD (GitHub Actions). Crea .github/workflows/ci.yml para que tu proyecto se construya automaticamente en cada push.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Tu README le faltan secciones clave: Descripcion del proyecto, Tecnologias usadas, Como ejecutar, Capturas de pantalla</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">Anade capturas de Swagger UI en tu README (docs/screenshots/). Demuestra visualmente que tu API funciona.</li><li style="font-size: 0.82em; margin: 5px 0; line-height: 1.5;">No tienes deploy en vivo. Despliega en Railway (gratis) para que cualquiera pueda probar tu API sin instalar nada.</li></ol></div></details></td></tr>
+</table>
+</details>
+
+<hr />
+<h2 style="border: none;">Distribucion de Notas</h2>
+
+<div style="margin: 20px 0;">
+<div style="display: flex; align-items: center; margin: 8px 0;"><span style="width: 130px; font-weight: bold; color: #ccc;">9-10 Excelente</span><div style="flex: 1; background: #333; border-radius: 5px; height: 28px; overflow: hidden;"><div style="width: 17%; background: linear-gradient(90deg, #f9d423, #ff4e50); height: 100%; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; min-width: 35px;">2</div></div></div><div style="display: flex; align-items: center; margin: 8px 0;"><span style="width: 130px; font-weight: bold; color: #ccc;">7-8 Notable</span><div style="flex: 1; background: #333; border-radius: 5px; height: 28px; overflow: hidden;"><div style="width: 58%; background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; min-width: 35px;">7</div></div></div><div style="display: flex; align-items: center; margin: 8px 0;"><span style="width: 130px; font-weight: bold; color: #ccc;">5-6 Aprobado</span><div style="flex: 1; background: #333; border-radius: 5px; height: 28px; overflow: hidden;"><div style="width: 25%; background: linear-gradient(90deg, #43e97b, #38f9d7); height: 100%; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; min-width: 35px;">3</div></div></div><div style="display: flex; align-items: center; margin: 8px 0;"><span style="width: 130px; font-weight: bold; color: #ccc;"><5 Insuficiente</span><div style="flex: 1; background: #333; border-radius: 5px; height: 28px; overflow: hidden;"><div style="width: 0%; background: linear-gradient(90deg, #fa709a, #fee140); height: 100%; border-radius: 5px; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; min-width: 0px;"></div></div></div></div>
+
+<hr />
+<div style="background: linear-gradient(180deg, #1a1a2e, #0f0f23); border-radius: 14px; padding: 24px 28px; margin: 30px 0; border: 1px solid rgba(255,255,255,0.05);"><h3 style="color: #ccc; margin: 0 0 16px; border: none; font-size: 1.05em;">&#955; Guia de lectura</h3><div style="display: flex; align-items: flex-start; gap: 10px; margin: 10px 0;"><div style="flex-shrink: 0; width: 36px; height: 24px; display: flex; align-items: center; justify-content: center;"><div style="display: inline-flex; align-items: center; gap: 4px; background: #1a1a2e; border-radius: 6px; padding: 3px 8px;"><span style="width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; background: #e8b84b; display: inline-flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.55em; color: #1a1a2e;">E</span><div style="width: 30px; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 70%; background: linear-gradient(90deg, #e8b84b, #f9d423); height: 100%; border-radius: 3px;"></div></div></div></div><div><span style="font-weight: 700; color: #e8b84b;">E (Entidades)</span><span style="color: #999;"> &mdash; Numero de entidades JPA (@Entity) con relaciones.</span></div></div><div style="display: flex; align-items: flex-start; gap: 10px; margin: 10px 0;"><div style="flex-shrink: 0; width: 36px; height: 24px; display: flex; align-items: center; justify-content: center;"><div style="display: inline-flex; align-items: center; gap: 4px; background: #1a1a2e; border-radius: 6px; padding: 3px 8px;"><span style="width: 16px; height: 16px; border-radius: 4px; flex-shrink: 0; background: #667eea; display: inline-flex; align-items: center; justify-content: center; font-weight: 900; font-size: 0.55em; color: #fff;">A</span><div style="width: 30px; background: #2a2a3a; border-radius: 3px; height: 5px; overflow: hidden;"><div style="width: 80%; background: linear-gradient(90deg, #667eea, #764ba2); height: 100%; border-radius: 3px;"></div></div></div></div><div><span style="font-weight: 700; color: #667eea;">A (API)</span><span style="color: #999;"> &mdash; Capas Spring Boot: Controllers + Services + Repositories.</span></div></div><div style="display: flex; align-items: flex-start; gap: 10px; margin: 10px 0;"><div style="flex-shrink: 0; width: 36px; height: 24px; display: flex; align-items: center; justify-content: center;"><span style="font-weight: 900; color: #3498db; font-size: 1.1em;">8.3</span></div><div><span style="font-weight: 700; color: #3498db;">Nota</span><span style="color: #999;"> &mdash; Nota final (0-10). Combina entidades JPA (17%) + calidad de codigo (17%) + API REST (15%) + estructura Spring Boot (12%) + Docker (10%) + documentacion (8%) + CI/CD (7%) + dependencias (5%) + tests (5%) + deploy en vivo (4%).</span></div></div><div style="display: flex; align-items: flex-start; gap: 10px; margin: 10px 0;"><div style="flex-shrink: 0; width: 36px; height: 24px; display: flex; align-items: center; justify-content: center;"><span style="display: inline-block; background: rgba(46,204,113,0.12); border: 1px solid rgba(46,204,113,0.3); border-radius: 10px; padding: 1px 8px; font-size: 0.72em; color: #2ecc71; font-weight: 700;">&#8593; +1.0</span></div><div><span style="font-weight: 700; color: #2ecc71;">Delta</span><span style="color: #999;"> &mdash; Cambio respecto a la evaluacion anterior. Flecha verde hacia arriba = mejora. Flecha roja hacia abajo = la nota bajo (por ejemplo, si el alumno borro codigo de su repo).</span></div></div><div style="display: flex; align-items: flex-start; gap: 10px; margin: 10px 0;"><div style="flex-shrink: 0; width: 36px; height: 24px; display: flex; align-items: center; justify-content: center;"><span style="display: inline-block; background: rgba(231,76,60,0.1); border: 1px solid rgba(231,76,60,0.3); border-radius: 10px; padding: 1px 8px; font-size: 0.65em; color: #e74c3c; font-weight: 600;">&#9888; -5%</span></div><div><span style="font-weight: 700; color: #e74c3c;">Penalizacion tardia</span><span style="color: #999;"> &mdash; Solo aparece si el alumno mejoro su proyecto despues del periodo de gracia (fin de semana post Demo Day). El porcentaje se aplica unicamente sobre la mejora, no sobre la nota base. Ejemplo: si la nota base fue 8.5 y la mejora bruta da 9.6, con -5% la mejora de +1.1 se reduce a +1.0, quedando 9.5 final.</span></div></div></div>
+
+<hr />
+<div style="background: linear-gradient(180deg, #1a1a2e, #0f0f23); border-radius: 14px; padding: 24px 28px; margin: 30px 0; border: 1px solid rgba(255,255,255,0.05);"><h3 style="color: #ccc; margin: 0 0 18px; border: none; font-size: 1.05em;">&#9881; Criterios de Evaluacion</h3><div style="margin: 14px 0; padding: 14px; background: rgba(249,212,35,0.04); border-radius: 10px; border-left: 3px solid #f9d42340;"><h4 style="color: #f9d423; margin: 0 0 8px; border: none; font-size: 0.95em;">&#916; Promocion 2026 (11 alumnos)</h4><p style="color: #999; font-size: 0.88em; margin: 0; line-height: 1.6;">Curso IFCD0014 — Spring Boot + Hibernate (75h). Cada alumno elige 1 de 16 blueprints y construye una API REST completa con Spring Boot, JPA, Docker y CI/CD. Demo Day: 19 marzo 2026.</p></div><div style="margin: 14px 0; padding: 14px; background: rgba(46,204,113,0.04); border-radius: 10px; border-left: 3px solid #2ecc7140;"><h4 style="color: #2ecc71; margin: 0 0 8px; border: none; font-size: 0.95em;">&#931; Desglose de la Nota</h4><p style="color: #999; font-size: 0.88em; margin: 0; line-height: 1.6;">Entidades JPA (17%) + Calidad de codigo (17%) + API REST (15%) + Estructura Spring Boot (12%) + Docker (10%) + Documentacion (8%) + CI/CD (7%) + Dependencias (5%) + Tests (5%) + Deploy en vivo (4%). Proyectos copiados del ejemplo del profesor reciben penalizacion.</p></div><div style="margin: 14px 0 0; padding: 14px; background: rgba(102,126,234,0.04); border-radius: 10px; border-left: 3px solid #667eea40;"><h4 style="color: #667eea; margin: 0 0 8px; border: none; font-size: 0.95em;">&#8734; Comunidad</h4><p style="color: #999; font-size: 0.88em; margin: 0; line-height: 1.6;">Cualquiera puede hacer fork del repositorio, completar el curso y aparecer en el ranking. Mismos criterios de evaluacion.</p></div></div>
+
+<hr />
+<p style="text-align: center; color: #555; font-size: 0.85em; margin-top: 40px;">
+El ranking se actualiza con cada evaluacion. Sube tu proyecto para aparecer!<br>
+<em>Generado por: QUASAR (Quality Unified Automated Student Assessment & Ranking) | 2026-04-03 20:45</em>
+</p>
+
+<hr />
+<p><strong>Curso:</strong> IFCD0014 — Spring Boot + Hibernate (75h) — De Java a Docker
+<strong>Profesor:</strong> Juan Marcelo Gutierrez Miranda | @TodoEconometria
+<strong>Metodologia:</strong> 16 blueprints de proyectos reales, evaluacion automatica, CI/CD con GitHub Actions</p>
+<p><strong>Referencias:</strong>
+- Walls, C. (2022). <em>Spring in Action</em>, 6th Ed. Manning Publications.
+- Bauer, C. &amp; King, G. (2015). <em>Java Persistence with Hibernate</em>, 2nd Ed. Manning.
+- Kleppmann, M. (2017). <em>Designing Data-Intensive Applications</em>. O'Reilly Media.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+  
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Volver al principio
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+        
+      
+      <nav class="md-footer__inner md-grid" aria-label="Pie" >
+        
+          
+          <a href="../evaluacion/" class="md-footer__link md-footer__link--prev" aria-label="Anterior: Evaluacion">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Anterior
+              </span>
+              <div class="md-ellipsis">
+                Evaluacion
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../git-github/" class="md-footer__link md-footer__link--next" aria-label="Siguiente: Referencia rapida">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Siguiente
+              </span>
+              <div class="md-ellipsis">
+                Referencia rapida
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Copyright &copy; 2026 Juan Marcelo Gutierrez Miranda — TodoEconometria
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+    <a href="https://github.com/TodoEconometria" target="_blank" rel="noopener" title="GitHub" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.linkedin.com/in/juangutierrezconsultor/" target="_blank" rel="noopener" title="LinkedIn" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.youtube.com/channel/UC2ok03ltDHcVo1PZ1C8mGeg" target="_blank" rel="noopener" title="YouTube" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z"/></svg>
+    </a>
+  
+    
+    
+    
+    
+    <a href="https://www.todoeconometria.com" target="_blank" rel="noopener" title="Web TodoEconometria" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M351.9 280H161c2.9 64.5 17.2 123.9 37.5 167.4 11.4 24.5 23.7 41.8 35.1 52.4 11.2 10.5 18.9 12.2 22.9 12.2s11.7-1.7 22.9-12.2c11.4-10.6 23.7-28 35.1-52.4 20.3-43.5 34.6-102.9 37.5-167.4zm-191-48h190.9c-2.8-64.5-17.1-123.9-37.4-167.4-11.4-24.4-23.7-41.8-35.1-52.4C268.1 1.7 260.4 0 256.4 0s-11.7 1.7-22.9 12.2c-11.4 10.6-23.7 28-35.1 52.4-20.3 43.5-34.6 102.9-37.5 167.4m-48 0c3.5-85.6 25.6-165.1 57.9-217.3C78.7 47.3 10.9 131.2 1.5 232zM1.5 280c9.4 100.8 77.2 184.7 169.3 217.3-32.3-52.2-54.4-131.7-57.9-217.3zm398.4 0c-3.5 85.6-25.6 165.1-57.9 217.3 92.1-32.7 159.9-116.5 169.3-217.3zm111.4-48C501.9 131.2 434.1 47.3 342 14.7c32.3 52.2 54.4 131.7 57.9 217.3z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.code.select", "toc.follow"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado al portapapeles", "clipboard.copy": "Copiar al portapapeles", "search.result.more.one": "1 m\u00e1s en esta p\u00e1gina", "search.result.more.other": "# m\u00e1s en esta p\u00e1gina", "search.result.none": "No se encontraron documentos", "search.result.one": "1 documento encontrado", "search.result.other": "# documentos encontrados", "search.result.placeholder": "Teclee para comenzar b\u00fasqueda", "search.result.term.missing": "Falta", "select.version": "Seleccionar versi\u00f3n"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
