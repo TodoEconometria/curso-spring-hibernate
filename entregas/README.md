@@ -44,6 +44,18 @@ Si haces el curso por tu cuenta, usa `comunidad/`.
 2. Completar los archivos
 3. Commit y push a tu fork
 
+## Autoevaluación automática (también si vienes del libro)
+
+Cada vez que subes un `PROMPTS.md` dentro de `entregas/` a tu fork, una GitHub Action lo evalúa con los
+criterios del curso ([evaluacion-prompts-ia](https://github.com/TodoEconometria/evaluacion-prompts-ia)):
+número de prompts, capturas, blueprint y extensión. El informe, con consejos para mejorar, sale en la
+pestaña **Actions** de tu fork. Sin modelos de IA y sin coste. Es una orientación, no una nota oficial.
+
+1. En tu fork, pestaña **Actions** → «I understand my workflows, go ahead and enable them» (una sola vez).
+2. Si haces el curso por tu cuenta o vienes del libro *Arquitectura de Sistemas Enterprise*, entrega en
+   `entregas/trabajo_final/comunidad/apellido_nombre/`.
+3. Haz push: el informe aparece en unos segundos. También puedes lanzarlo a mano («Run workflow»).
+
 ## Reglas
 
 1. Trabaja en TU fork

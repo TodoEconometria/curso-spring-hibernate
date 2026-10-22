@@ -1,0 +1,40 @@
+name: Autoevaluacion por PROMPTS
+
+# Corre en TU fork cada vez que subes un PROMPTS.md en entregas/: aplica los criterios del curso
+# (evaluacion-prompts-ia, sin modelos de IA ni coste) y deja el informe en el resumen de la
+# ejecucion (pestana Actions). En el repositorio original no corre: alli no se entregan trabajos.
+# Los forks traen Actions desactivadas: actívalas una vez en la pestana Actions de tu fork.
+
+on:
+  push:
+    paths:
+      - "entregas/**/PROMPTS.md"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  autoevaluar:
+    if: github.repository != 'TodoEconometria/curso-spring-hibernate'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Tu fork
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Evaluador (evaluacion-prompts-ia)
+        uses: actions/checkout@v4
+        with:
+          repository: TodoEconometria/evaluacion-prompts-ia
+          path: .evaluador
+
+      - name: Autoevaluar
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            ficheros=$(find entregas -name PROMPTS.md)
+          else
+            ficheros=$(git diff --name-only HEAD~1 HEAD -- 'entregas/**/PROMPTS.md' || find entregas -name PROMPTS.md)
+          fi
+          python3 .evaluador/scripts/autoevaluar.py $ficheros | tee -a "$GITHUB_STEP_SUMMARY"
